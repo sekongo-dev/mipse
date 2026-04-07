@@ -1,0 +1,2413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIPSE - Mouvement Ivoirien pour la Sauvegarde de l'Environnement</title>
+    <meta name="description" content="MIPSE - Agissons ensemble pour un avenir durable en Côte d'Ivoire. Reboisement, sensibilisation, formation et mobilisation citoyenne.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ========== VARIABLES & DESIGN SYSTEM ========== */
+        :root {
+            --green-900: #1a3009;
+            --green-800: #2d5016;
+            --green-700: #3a6a1e;
+            --green-600: #4a7c2c;
+            --green-500: #5a9a35;
+            --green-400: #78b44e;
+            --green-300: #a8d08d;
+            --green-200: #c8e6a8;
+            --green-100: #e8f5d6;
+            --green-50: #f4faf0;
+            --gold-500: #d4a855;
+            --gold-400: #e8c477;
+            --gold-300: #f0d89a;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --shadow-green: 0 8px 30px rgba(74, 124, 44, 0.25);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+            --radius-full: 9999px;
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-spring: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            --font-display: 'Playfair Display', Georgia, serif;
+            --font-body: 'Inter', -apple-system, sans-serif;
+        }
+
+        /* ========== RESET & BASE ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: var(--font-body);
+            line-height: 1.7; 
+            color: var(--gray-700);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ========== ANIMATIONS KEYFRAMES ========== */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.85); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-10px) rotate(1deg); }
+            66% { transform: translateY(-5px) rotate(-1deg); }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        @keyframes pulse-soft {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.05); }
+        }
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes rotate-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes count-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+        @keyframes leaf-fall {
+            0% { transform: translateY(-10%) rotate(0deg) translateX(0); opacity: 0; }
+            10% { opacity: 0.8; }
+            100% { transform: translateY(110vh) rotate(720deg) translateX(100px); opacity: 0; }
+        }
+
+        /* ========== ANIMATION ON SCROLL (classe utilitaire) ========== */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .reveal-scale.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* ========== LIGHTBOX ========== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .lightbox.active { display: flex; }
+        .lightbox-content {
+            max-width: 90%; max-height: 90%;
+            position: relative;
+            animation: zoomIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .lightbox-content img {
+            width: 100%; height: auto; max-height: 80vh;
+            object-fit: contain;
+            border-radius: var(--radius-md);
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.5);
+        }
+        .lightbox-caption {
+            position: absolute; bottom: -50px; left: 0; right: 0;
+            text-align: center; color: white;
+            font-size: 0.95rem; padding: 12px 20px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: var(--radius-sm);
+            backdrop-filter: blur(10px);
+            font-weight: 500;
+        }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 20px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            color: white; border: 1px solid rgba(255,255,255,0.2);
+            width: 48px; height: 48px;
+            border-radius: var(--radius-full);
+            font-size: 1.4rem; cursor: pointer;
+            z-index: 2001;
+            transition: var(--transition-base);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.25);
+            transform: rotate(90deg) scale(1.1);
+        }
+        .lightbox-nav {
+            position: absolute; top: 50%; width: 100%;
+            display: flex; justify-content: space-between;
+            padding: 0 20px; transform: translateY(-50%);
+            z-index: 2001;
+        }
+        .lightbox-nav-btn {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            color: white; border: 1px solid rgba(255,255,255,0.2);
+            width: 48px; height: 48px;
+            border-radius: var(--radius-full);
+            font-size: 1.3rem; cursor: pointer;
+            transition: var(--transition-base);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .lightbox-nav-btn:hover {
+            background: rgba(255,255,255,0.25);
+            transform: scale(1.15);
+        }
+
+        /* ========== HEADER PROFESSIONNEL ========== */
+        header {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            transition: var(--transition-base);
+        }
+        header.scrolled {
+            padding: 0.5rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: var(--shadow-md);
+        }
+        .header-container {
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 1300px; margin: 0 auto;
+        }
+        .logo-container {
+            display: flex; align-items: center; gap: 0.8rem;
+            text-decoration: none;
+        }
+        .logo-container img {
+            height: 44px; width: 44px; border-radius: var(--radius-full);
+            transition: var(--transition-base);
+            object-fit: cover;
+            border: 2px solid var(--green-200);
+        }
+        .logo-container:hover img { transform: scale(1.08); }
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1.4rem; font-weight: 800;
+            color: var(--green-800);
+            letter-spacing: -0.5px;
+        }
+        nav ul {
+            display: flex; list-style: none; gap: 0.3rem; align-items: center;
+        }
+        nav a {
+            color: var(--gray-600); text-decoration: none;
+            font-weight: 500; font-size: 0.9rem;
+            transition: var(--transition-base);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            position: relative;
+        }
+        nav a:hover {
+            color: var(--green-700);
+            background: var(--green-50);
+        }
+        nav a::after {
+            content: '';
+            position: absolute; bottom: 2px; left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 50%; height: 2px;
+            background: linear-gradient(90deg, var(--green-500), var(--green-300));
+            border-radius: 2px;
+            transition: transform var(--transition-base);
+        }
+        nav a:hover::after { transform: translateX(-50%) scaleX(1); }
+
+        /* Bouton CTA dans le header */
+        .nav-cta {
+            background: linear-gradient(135deg, var(--green-600), var(--green-700));
+            color: var(--white) !important;
+            padding: 0.5rem 1.3rem !important;
+            border-radius: var(--radius-full) !important;
+            font-weight: 600 !important;
+            box-shadow: 0 2px 10px rgba(74, 124, 44, 0.3);
+        }
+        .nav-cta:hover {
+            background: linear-gradient(135deg, var(--green-700), var(--green-800)) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(74, 124, 44, 0.4) !important;
+        }
+        .nav-cta::after { display: none !important; }
+
+        .menu-toggle {
+            display: none; background: none;
+            border: 2px solid var(--green-600);
+            color: var(--green-700); font-size: 1.3rem;
+            cursor: pointer; padding: 0.4rem 0.7rem;
+            border-radius: var(--radius-sm);
+            transition: var(--transition-base);
+        }
+        .menu-toggle:hover {
+            background: var(--green-600); color: var(--white);
+        }
+
+        /* ========== HERO SECTION ========== */
+        #accueil {
+            margin-top: 70px;
+            min-height: 100vh;
+            /* L'image de fond sert de fallback si la vidéo ne charge pas */
+            background: linear-gradient(160deg, rgba(26, 48, 9, 0.85), rgba(58, 106, 30, 0.7), rgba(74, 124, 44, 0.65)),
+                        url('ai-generated-8708404_1280.jpg') center/cover fixed;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; color: var(--white);
+            padding: 2rem;
+            position: relative; overflow: hidden;
+        }
+
+        /* ========== VIDÉO D'ARRIÈRE-PLAN DU HERO ========== */
+        /* La vidéo couvre toute la section hero, positionnée derrière le contenu */
+        .hero-video {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover; /* Remplit tout l'espace sans déformation */
+            z-index: 0;
+        }
+        /* Overlay gradient par-dessus la vidéo pour lisibilité du texte */
+        .hero-video-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(160deg, rgba(26, 48, 9, 0.85), rgba(58, 106, 30, 0.7), rgba(74, 124, 44, 0.65));
+            z-index: 1;
+        }
+
+        /* Particules de feuilles animées */
+        .hero-particles {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; overflow: hidden;
+        }
+        .leaf {
+            position: absolute; font-size: 1.5rem; opacity: 0;
+            animation: leaf-fall linear infinite;
+        }
+        .leaf:nth-child(1) { left: 10%; animation-duration: 12s; animation-delay: 0s; font-size: 1.2rem; }
+        .leaf:nth-child(2) { left: 25%; animation-duration: 15s; animation-delay: 2s; font-size: 1.8rem; }
+        .leaf:nth-child(3) { left: 45%; animation-duration: 10s; animation-delay: 4s; }
+        .leaf:nth-child(4) { left: 65%; animation-duration: 14s; animation-delay: 1s; font-size: 1rem; }
+        .leaf:nth-child(5) { left: 80%; animation-duration: 11s; animation-delay: 3s; font-size: 2rem; }
+        .leaf:nth-child(6) { left: 92%; animation-duration: 13s; animation-delay: 5s; }
+
+        /* Cercles décoratifs lumineux */
+        .hero-glow {
+            position: absolute; border-radius: 50%;
+            background: radial-gradient(circle, rgba(168, 208, 141, 0.15), transparent 70%);
+            animation: pulse-soft 8s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .hero-glow-1 { width: 600px; height: 600px; top: -200px; right: -100px; animation-delay: 0s; }
+        .hero-glow-2 { width: 400px; height: 400px; bottom: -100px; left: -50px; animation-delay: 3s; }
+        .hero-glow-3 { width: 300px; height: 300px; top: 40%; left: 60%; animation-delay: 5s; }
+
+        .hero-content {
+            position: relative; z-index: 2; max-width: 850px;
+        }
+        .hero-particles {
+            z-index: 2;
+        }
+        .hero-glow {
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.5rem 1.3rem;
+            border-radius: var(--radius-full);
+            font-size: 0.85rem; font-weight: 500;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease 0.2s both;
+            letter-spacing: 0.5px;
+        }
+        .hero-content h1 {
+            font-family: var(--font-display);
+            font-size: 4rem; margin-bottom: 1.5rem;
+            font-weight: 900; line-height: 1.1;
+            animation: fadeInUp 1s ease 0.4s both;
+            letter-spacing: -1px;
+        }
+        .hero-content h1 span {
+            background: linear-gradient(135deg, var(--green-200), var(--gold-300));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-content p {
+            font-size: 1.25rem; margin-bottom: 2.5rem;
+            font-weight: 300; opacity: 0.9;
+            animation: fadeInUp 1s ease 0.6s both;
+            max-width: 600px; margin-left: auto; margin-right: auto;
+            line-height: 1.8;
+        }
+        .hero-buttons {
+            display: flex; gap: 1rem;
+            justify-content: center; flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.8s both;
+        }
+
+        /* Statistiques dans le hero */
+        .hero-stats {
+            display: flex; justify-content: center; gap: 3rem;
+            margin-top: 4rem; flex-wrap: wrap;
+            animation: fadeInUp 1s ease 1s both;
+        }
+        .hero-stat {
+            text-align: center;
+        }
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem; font-weight: 900;
+            display: block;
+            background: linear-gradient(135deg, var(--white), var(--green-200));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-stat-label {
+            font-size: 0.85rem; opacity: 0.7;
+            font-weight: 500; letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Indicateur de scroll */
+        .scroll-indicator {
+            position: absolute; bottom: 2rem; left: 50%;
+            transform: translateX(-50%);
+            animation: float 3s ease-in-out infinite;
+            z-index: 2;
+        }
+        .scroll-indicator a {
+            display: flex; flex-direction: column; align-items: center;
+            gap: 0.5rem; color: rgba(255,255,255,0.6);
+            text-decoration: none; font-size: 0.75rem;
+            font-weight: 500; letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: var(--transition-base);
+        }
+        .scroll-indicator a:hover { color: rgba(255,255,255,0.9); }
+        .scroll-arrow {
+            width: 24px; height: 24px; border: 2px solid rgba(255,255,255,0.4);
+            border-radius: var(--radius-full);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        /* ========== BOUTONS ========== */
+        .btn {
+            padding: 0.9rem 2.2rem; border: none;
+            border-radius: var(--radius-full);
+            font-size: 1rem; font-weight: 600;
+            cursor: pointer; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            transition: var(--transition-base);
+            position: relative; overflow: hidden;
+            font-family: var(--font-body);
+            letter-spacing: 0.2px;
+        }
+        .btn::before {
+            content: ''; position: absolute;
+            top: 50%; left: 50%;
+            width: 0; height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+        .btn:hover::before { width: 300px; height: 300px; }
+
+        .btn-primary {
+            background: var(--white); color: var(--green-800);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            border: 1.5px solid rgba(255,255,255,0.3);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+            border-color: rgba(255,255,255,0.5);
+        }
+        .btn-green {
+            background: linear-gradient(135deg, var(--green-600), var(--green-700));
+            color: var(--white);
+            box-shadow: var(--shadow-green);
+        }
+        .btn-green:hover {
+            background: linear-gradient(135deg, var(--green-700), var(--green-800));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 35px rgba(74, 124, 44, 0.35);
+        }
+
+        /* ========== SECTIONS GENERALES ========== */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-label {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            color: var(--green-600);
+            font-weight: 600; font-size: 0.85rem;
+            letter-spacing: 2px; text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        .section-label::before, .section-label::after {
+            content: ''; width: 30px; height: 1.5px;
+            background: linear-gradient(90deg, var(--green-400), var(--green-200));
+        }
+        section h2 {
+            font-family: var(--font-display);
+            font-size: 3rem; color: var(--gray-900);
+            font-weight: 800; line-height: 1.2;
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+        section h2 em {
+            font-style: normal;
+            color: var(--green-600);
+        }
+        .section-description {
+            max-width: 700px; margin: 0 auto;
+            font-size: 1.1rem; color: var(--gray-500);
+            line-height: 1.8;
+        }
+
+        /* ========== A PROPOS ========== */
+        .about-full {
+            background: linear-gradient(180deg, var(--green-50) 0%, var(--white) 100%);
+            padding: 6rem 0;
+        }
+        .about-inner {
+            max-width: 1300px; margin: 0 auto; padding: 0 2rem;
+        }
+        .about-text {
+            max-width: 900px; margin: 0 auto 3rem;
+            text-align: left; padding: 0 1rem;
+        }
+        .about-text p {
+            margin-bottom: 1.2rem; font-size: 1.05rem;
+            color: var(--gray-600); line-height: 1.9;
+        }
+        .about-quote {
+            margin: 2.5rem 0;
+            padding: 2rem 2.5rem;
+            background: linear-gradient(135deg, rgba(74, 124, 44, 0.06), rgba(168, 208, 141, 0.08));
+            border-left: 4px solid var(--green-500);
+            border-radius: 0 var(--radius-md) var(--radius-md) 0;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: var(--green-800);
+            font-weight: 600;
+            position: relative;
+        }
+        .about-quote::before {
+            content: '"';
+            font-family: var(--font-display);
+            font-size: 4rem;
+            color: var(--green-300);
+            position: absolute; top: -10px; left: 15px;
+            line-height: 1;
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .about-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
+            overflow: hidden;
+        }
+        .about-card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--green-500), var(--green-300));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform var(--transition-slow);
+        }
+        .about-card:hover::before { transform: scaleX(1); }
+        .about-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        .about-card-icon {
+            width: 56px; height: 56px;
+            background: linear-gradient(135deg, var(--green-100), var(--green-50));
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; margin-bottom: 1.5rem;
+        }
+        .about-card h3 {
+            color: var(--gray-900); margin-bottom: 1rem;
+            font-size: 1.3rem; font-weight: 700;
+            font-family: var(--font-display);
+        }
+        .about-card p {
+            color: var(--gray-500); line-height: 1.8; font-size: 0.95rem;
+        }
+
+        /* ========== GRANDS PROJETS (section premium) ========== */
+        /* Style distinct de la section Actions pour marquer l'importance */
+        .grands-projets-full {
+            background: linear-gradient(180deg, var(--green-900) 0%, #1a2e0a 60%, var(--green-800) 100%);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        /* Décoration lumineuse en arrière-plan */
+        .grands-projets-full::before {
+            content: '';
+            position: absolute;
+            top: -200px; right: -200px;
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(212, 168, 85, 0.1), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .grands-projets-full::after {
+            content: '';
+            position: absolute;
+            bottom: -150px; left: -150px;
+            width: 500px; height: 500px;
+            background: radial-gradient(circle, rgba(90, 154, 53, 0.1), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .grands-projets-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 1;
+        }
+        /* Override des titres pour le fond sombre */
+        .grands-projets-full .section-header h2 {
+            color: var(--white);
+        }
+        .grands-projets-full .section-header h2 em {
+            color: var(--gold-400);
+        }
+        .grands-projets-full .section-description {
+            color: rgba(255,255,255,0.7);
+        }
+        .grands-projets-full .section-label {
+            color: var(--gold-400);
+        }
+        .grands-projets-full .section-label::before,
+        .grands-projets-full .section-label::after {
+            background: linear-gradient(90deg, var(--gold-400), var(--gold-300));
+        }
+        /* Cartes de grands projets : style premium doré */
+        .grands-projets-full .action-card {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(212, 168, 85, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .grands-projets-full .action-card:hover {
+            border-color: rgba(212, 168, 85, 0.5);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4), 0 0 30px rgba(212, 168, 85, 0.1);
+            transform: translateY(-8px);
+        }
+        .grands-projets-full .action-content h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+        }
+        .grands-projets-full .action-content p {
+            color: rgba(255,255,255,0.7);
+        }
+        .grands-projets-full .image-container {
+            height: 260px;
+        }
+        /* Badge doré "Grand Projet" */
+        .gp-badge {
+            display: inline-flex; align-items: center; gap: 0.4rem;
+            padding: 0.35rem 1rem;
+            background: linear-gradient(135deg, var(--gold-500), var(--gold-400));
+            color: var(--green-900);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem; font-weight: 800;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* ========== ACTIONS ========== */
+        .filter-buttons {
+            display: flex; justify-content: center;
+            gap: 0.6rem; margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 0.6rem 1.5rem;
+            background: var(--white);
+            border: 1.5px solid var(--gray-200);
+            border-radius: var(--radius-full);
+            cursor: pointer; font-weight: 600;
+            transition: var(--transition-base);
+            color: var(--gray-500); font-size: 0.9rem;
+            font-family: var(--font-body);
+        }
+        .filter-btn.active {
+            background: var(--green-700); color: var(--white);
+            border-color: var(--green-700);
+            box-shadow: var(--shadow-green);
+        }
+        .filter-btn:hover:not(.active) {
+            border-color: var(--green-400);
+            color: var(--green-700);
+            background: var(--green-50);
+        }
+
+        .actions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+        .action-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .action-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+        .image-container {
+            position: relative; width: 100%; height: 220px;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--green-100), var(--green-200));
+        }
+        .image-container img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+        .action-card:hover .image-container img { transform: scale(1.08); }
+        .image-container::after {
+            content: "MIPSE";
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            color: rgba(255, 255, 255, 0.25);
+            font-size: 2.2rem; font-family: var(--font-display);
+            font-weight: bold; pointer-events: none; z-index: 2;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        .action-content { padding: 1.5rem 1.8rem; }
+        .action-header {
+            display: flex; justify-content: space-between;
+            align-items: center; margin-bottom: 0.8rem;
+            gap: 0.5rem; flex-wrap: wrap;
+        }
+        .action-status-container {
+            display: flex; align-items: center;
+            gap: 0.5rem; flex-wrap: wrap;
+        }
+        .action-status {
+            display: inline-block;
+            padding: 0.3rem 1rem; border-radius: var(--radius-full);
+            font-size: 0.78rem; font-weight: 700;
+            white-space: nowrap; letter-spacing: 0.3px;
+        }
+        .status-passee { background: var(--gray-100); color: var(--gray-500); }
+        .status-encours {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            color: #92400e;
+        }
+        .status-future {
+            background: linear-gradient(135deg, #dbeafe, #93c5fd);
+            color: #1e40af;
+        }
+        .photo-btn {
+            display: inline-flex; align-items: center; gap: 0.3rem;
+            padding: 0.4rem 1rem;
+            background: linear-gradient(135deg, var(--green-600), var(--green-700));
+            color: white; text-decoration: none;
+            border-radius: var(--radius-full);
+            font-size: 0.78rem; font-weight: 600;
+            transition: var(--transition-base);
+            box-shadow: 0 2px 8px rgba(74, 124, 44, 0.25);
+        }
+        .photo-btn:hover {
+            background: linear-gradient(135deg, var(--green-700), var(--green-800));
+            transform: translateY(-1px);
+        }
+        .action-content h3 {
+            color: var(--gray-900); font-size: 1.2rem;
+            margin-bottom: 0.6rem; font-weight: 700;
+            font-family: var(--font-display);
+        }
+        .action-content p {
+            color: var(--gray-500); font-size: 0.92rem; line-height: 1.7;
+        }
+
+        /* ========== GALERIE ========== */
+        .galerie-full {
+            background: var(--gray-50);
+            padding: 6rem 0;
+        }
+        .galerie-inner {
+            max-width: 1300px; margin: 0 auto; padding: 0 2rem;
+        }
+        .gallery-section {
+            margin-bottom: 3rem; padding: 2rem;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .gallery-header {
+            text-align: center; margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--green-100);
+        }
+        .gallery-header h3 {
+            font-family: var(--font-display);
+            color: var(--gray-900); font-size: 1.6rem;
+            margin-bottom: 1rem; font-weight: 700;
+        }
+        .gallery-info {
+            display: flex; justify-content: center;
+            gap: 2rem; flex-wrap: wrap;
+            color: var(--gray-500); font-weight: 500; font-size: 0.9rem;
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.2rem;
+        }
+        .gallery-item-container {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-base);
+            aspect-ratio: 1;
+            background: var(--gray-100);
+            cursor: pointer;
+        }
+        .gallery-item-container:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+        .gallery-item-container img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform var(--transition-slow);
+            pointer-events: none;
+        }
+        .gallery-item-container:hover img { transform: scale(1.1); }
+        .gallery-item-container::before {
+            content: "MIPSE";
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            color: rgba(255, 255, 255, 0.2);
+            font-size: 3rem; font-family: var(--font-display);
+            font-weight: bold; pointer-events: none; z-index: 2;
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+        }
+        /* Overlay au hover */
+        .gallery-item-container::after {
+            content: '🔍';
+            position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.3);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; opacity: 0;
+            transition: opacity var(--transition-base);
+            z-index: 3; pointer-events: none;
+        }
+        .gallery-item-container:hover::after { opacity: 1; }
+
+        /* Limitation à 4 photos + bouton "+X" */
+        .gallery-item-container.gallery-hidden {
+            display: none !important;
+        }
+        .gallery-show-more {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            aspect-ratio: 1;
+            /* Fond par défaut si pas d'image de fond */
+            background: var(--gray-800);
+            cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            flex-direction: column; gap: 0.5rem;
+            transition: var(--transition-base);
+            box-shadow: var(--shadow-md);
+        }
+        /* Image de fond dans le bouton "+X" */
+        .gallery-show-more img {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+        /* Overlay sombre sur l'image pour lisibilité du texte */
+        .gallery-show-more::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+            transition: var(--transition-base);
+        }
+        .gallery-show-more:hover::before {
+            background: rgba(0, 0, 0, 0.4);
+        }
+        .gallery-show-more-count, .gallery-show-more-label {
+            position: relative;
+            z-index: 2;
+        }
+        .gallery-show-more:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+        .gallery-show-more-count {
+            font-family: var(--font-display);
+            font-size: 2.5rem; font-weight: 900;
+            color: var(--white);
+            line-height: 1;
+        }
+        .gallery-show-more-label {
+            font-size: 0.9rem; font-weight: 600;
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 0.5px;
+        }
+        .gallery-show-less {
+            display: flex; justify-content: center; margin-top: 1.5rem;
+        }
+        .gallery-show-less-btn {
+            padding: 0.6rem 1.8rem;
+            background: var(--white);
+            border: 1.5px solid var(--green-300);
+            border-radius: var(--radius-full);
+            cursor: pointer; font-weight: 600;
+            color: var(--green-700); font-size: 0.9rem;
+            transition: var(--transition-base);
+            font-family: var(--font-body);
+        }
+        .gallery-show-less-btn:hover {
+            background: var(--green-50);
+            border-color: var(--green-500);
+        }
+
+        .gallery-nav {
+            display: flex; justify-content: center;
+            align-items: center; gap: 1.5rem; margin-top: 2.5rem;
+        }
+        .gallery-nav-btn {
+            padding: 0.7rem 1.8rem;
+            background: linear-gradient(135deg, var(--green-600), var(--green-700));
+            color: var(--white); border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer; font-weight: 600;
+            transition: var(--transition-base);
+            box-shadow: var(--shadow-green);
+            font-size: 0.9rem;
+            font-family: var(--font-body);
+        }
+        .gallery-nav-btn:hover {
+            background: linear-gradient(135deg, var(--green-700), var(--green-800));
+            transform: translateY(-2px);
+        }
+        .gallery-nav-btn:disabled {
+            background: var(--gray-200); cursor: not-allowed;
+            transform: none; box-shadow: none; color: var(--gray-400);
+        }
+        #gallery-counter {
+            font-weight: 700; color: var(--green-700);
+            font-size: 1rem; font-family: var(--font-display);
+        }
+
+        /* ========== PARTENAIRES ========== */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem; margin-top: 2rem;
+        }
+        .partner-logo {
+            background: var(--white);
+            padding: 2rem; border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            font-weight: 600; color: var(--gray-600);
+            min-height: 130px;
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition-base);
+            border: 1.5px solid var(--gray-100);
+            font-size: 0.95rem;
+        }
+        /* Style pour les images de logos partenaires */
+        .partner-logo img {
+            max-width: 100%;
+            max-height: 80px;
+            object-fit: contain;
+            transition: var(--transition-base);
+            filter: grayscale(60%) opacity(0.7); /* Grisé par défaut */
+        }
+        .partner-logo:hover img {
+            filter: grayscale(0%) opacity(1); /* Couleur au survol */
+            transform: scale(1.08);
+        }
+        }
+        .partner-logo:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--green-300);
+            color: var(--green-700);
+        }
+
+        /* ========== CONTACTS ========== */
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem; margin-top: 2rem;
+        }
+        .contact-info, .social-media {
+            background: var(--white);
+            padding: 2.5rem; border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+        .contact-info:hover, .social-media:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .contact-info h3, .social-media h3 {
+            font-family: var(--font-display);
+            color: var(--gray-900); margin-bottom: 1.5rem;
+            font-size: 1.4rem; font-weight: 700;
+        }
+        .contact-item {
+            display: flex; align-items: center;
+            gap: 1rem; margin-bottom: 1.3rem;
+            font-size: 1rem; color: var(--gray-600);
+        }
+        .contact-icon {
+            width: 46px; height: 46px;
+            background: linear-gradient(135deg, var(--green-100), var(--green-50));
+            color: var(--green-700);
+            border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; flex-shrink: 0;
+        }
+        .social-links {
+            display: flex; gap: 1rem; margin-top: 1.5rem;
+        }
+        .social-link {
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, var(--green-600), var(--green-700));
+            color: var(--white); border-radius: var(--radius-md);
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none; font-size: 1.4rem;
+            transition: var(--transition-spring);
+            box-shadow: 0 3px 12px rgba(74, 124, 44, 0.25);
+        }
+        .social-link:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(74, 124, 44, 0.4);
+        }
+
+        /* ========== FOOTER ========== */
+        footer {
+            background: var(--gray-900);
+            color: rgba(255,255,255,0.8);
+            padding: 5rem 2rem 2rem;
+        }
+        .footer-content {
+            max-width: 1300px; margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem; margin-bottom: 3rem;
+        }
+        .footer-section h3 {
+            color: var(--white);
+            font-family: var(--font-display);
+            font-size: 1.2rem; margin-bottom: 1.5rem;
+            font-weight: 700; position: relative;
+            padding-bottom: 12px;
+        }
+        .footer-section h3::after {
+            content: ''; position: absolute;
+            bottom: 0; left: 0; width: 40px; height: 3px;
+            background: linear-gradient(90deg, var(--green-500), var(--green-300));
+            border-radius: 2px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a {
+            color: rgba(255,255,255,0.6); text-decoration: none;
+            transition: var(--transition-base);
+            display: flex; align-items: center; gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .footer-links a:hover {
+            color: var(--green-300);
+            transform: translateX(4px);
+        }
+        .copyright {
+            text-align: center; padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.85rem; color: rgba(255,255,255,0.4);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+            nav ul {
+                position: fixed; top: 65px; right: -100%;
+                width: 75%; max-width: 300px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column; gap: 0;
+                padding: 1rem 0;
+                transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                box-shadow: -10px 0 40px rgba(0,0,0,0.1);
+                border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+                height: calc(100vh - 65px);
+                overflow-y: auto;
+            }
+            nav ul.active { right: 0; }
+            nav li { width: 100%; text-align: center; }
+            nav a { display: block; padding: 1rem; border-radius: 0; }
+            nav a::after { display: none; }
+            .logo-text { font-size: 1.2rem; }
+            .hero-content h1 { font-size: 2.4rem; }
+            .hero-content p { font-size: 1.05rem; }
+            .hero-stats { gap: 1.5rem; }
+            .hero-stat-number { font-size: 2rem; }
+            section h2 { font-size: 2.2rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 280px; justify-content: center; }
+            .actions-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.8rem; }
+            .gallery-info { flex-direction: column; gap: 0.3rem; }
+            .action-header { flex-direction: column; align-items: flex-start; }
+            .action-status-container { flex-direction: column; align-items: flex-start; }
+            .footer-content { grid-template-columns: 1fr; gap: 2rem; }
+            .image-container::after { font-size: 1.5rem; }
+            .gallery-item-container::before { font-size: 2rem; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- ========== LIGHTBOX ========== -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <div class="lightbox-nav">
+            <button class="lightbox-nav-btn" onclick="prevLightboxImage()">❮</button>
+            <button class="lightbox-nav-btn" onclick="nextLightboxImage()">❯</button>
+        </div>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="">
+            <div class="lightbox-caption" id="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- ========== HEADER ========== -->
+    <header id="main-header">
+        <div class="header-container">
+            <a href="#accueil" class="logo-container">
+                <img src="Images/logo.jpg" alt="Logo MIPSE">
+                <span class="logo-text">MIPSE</span>
+            </a>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#accueil">Accueil</a></li>
+                    <li><a href="#apropos">À propos</a></li>
+                    <li><a href="#actions">Actions</a></li>
+                    <li><a href="#gprojets">Grands Projets</a></li>
+                    <li><a href="#galerie">Galerie</a></li>
+                    <li><a href="#partenaires">Partenaires</a></li>
+                    <li><a href="#contacts">Contacts</a></li>
+                    <li><a href="#">Faire un dons</a></li> <!--  class="nav-cta" -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ========== SECTION ACCUEIL / HERO ========== -->
+    <section id="accueil">
+        <!-- ====== VIDÉO D'ARRIÈRE-PLAN ====== -->
+        <!-- Pour activer la vidéo : remplacer le src par le chemin de votre vidéo (.mp4) -->
+        <!-- Attributs : autoplay (lecture auto), muted (muet obligatoire pour autoplay), loop (boucle), playsinline (mobile) -->
+        <video class="hero-video" autoplay muted loop playsinline>
+            <!-- Décommentez et modifiez la ligne ci-dessous avec votre fichier vidéo -->
+            <source src="Images/deo.mp4" type="video/mp4">
+        </video>
+        <!-- Overlay sombre par-dessus la vidéo pour la lisibilité -->
+        <div class="hero-video-overlay"></div>
+
+        <!-- Particules de feuilles décoratives -->
+        <div class="hero-particles">
+            <span class="leaf">🍃</span>
+            <span class="leaf">🌿</span>
+            <span class="leaf">🍂</span>
+            <span class="leaf">🌱</span>
+            <span class="leaf">🍃</span>
+            <span class="leaf">🌿</span>
+        </div>
+
+        <!-- Effets lumineux d'arrière-plan -->
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+        <div class="hero-glow hero-glow-3"></div>
+
+        <div class="hero-content">
+            <!-- Badge d'identification -->
+            <div class="hero-badge">🌍 ONG Environnementale · Côte d'Ivoire</div>
+            
+            <h1>Mouvement Ivoirien pour la <span>Sauvegarde de l'Environnement</span></h1>
+            
+            <p>Ensemble, engageons-nous pour un avenir durable. Reboisement, sensibilisation et mobilisation citoyenne au cœur de notre action.</p>
+            
+            <div class="hero-buttons">
+                <a href="https://forms.gle/FckktvR36vUENe618" class="btn btn-primary">✊ Rejoindre le mouvement</a>
+                <a href="#" class="btn btn-secondary">💚 Faire un don</a>
+            </div>
+
+            <!-- Chiffres clés animés -->
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="+100">0</span>
+                    <span class="hero-stat-label">Plants produits</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="+50">0</span>
+                    <span class="hero-stat-label">Familles aidées</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="+500">0</span>
+                    <span class="hero-stat-label">Élèves formés</span>
+                </div>
+                <!-- <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="600">0</span>
+                    <span class="hero-stat-label">Tonnes valorisées</span>
+                </div> -->
+            </div>
+        </div>
+
+        <!-- Indicateur de scroll -->
+        <!-- <div class="scroll-indicator">
+            <a href="#apropos">
+                <span>Découvrir</span>
+                <span class="scroll-arrow">↓</span>
+            </a>
+        </div> -->
+    </section>
+    
+    <!-- ========== SECTION À PROPOS ========== -->
+    <div class="about-full" id="apropos">
+        <div class="about-inner">
+            <div class="section-header reveal">
+                <div class="section-label">Qui sommes-nous</div>
+                <h2>À propos du <em>MIPSE</em></h2>
+            </div>
+
+            <div class="about-text reveal">
+                <p>Le Mouvement Ivoirien pour la Sauvegarde de l'Environnement (MIPSE) est né d'un constat urgent : celui d'une Côte d'Ivoire qui s'essouffle sous le poids de la déforestation et de la pollution, où nos rivières et nos forêts sont menacées.</p>
+                
+                <p>Mais ce constat est aussi un élan. Notre mouvement puise sa force dans l'espoir visible au quotidien : dans l'action d'un jeune qui plante un arbre, dans le refus d'une mère d'utiliser des sachets plastiques, et dans la mobilisation de communautés entières pour protéger leur terre.</p>
+                
+                <p>Convaincus que protéger l'environnement est un impératif, et que l'inaction coûterait bien plus cher à notre avenir et à notre dignité, nous avons fait de cette cause un combat collectif.</p>
+                
+                <p>Le MIPSE s'engage ainsi à agir concrètement sur le terrain par la sensibilisation, le reboisement, la formation et la mobilisation citoyenne. Plus qu'une simple ONG, nous construisons un mouvement national, une force citoyenne unie pour la vie, pour la terre et pour les générations futures.</p>
+                
+                <div class="about-quote">
+                    Ensemble, faisons du MIPSE la voix verte de la Côte d'Ivoire.
+                </div>
+            </div>
+
+            <div class="about-content">
+                <div class="about-card reveal" style="transition-delay: 0.1s;">
+                    <div class="about-card-icon">🎯</div>
+                    <h3>Notre Mission</h3>
+                    <p>Sensibiliser, former et agir contre la déforestation, les déchets mal gérés et l'indifférence écologique. Nous mobilisons les jeunes et les communautés autour d'initiatives durables à fort impact social et environnemental.</p>
+                </div>
+                <div class="about-card reveal" style="transition-delay: 0.2s;">
+                    <div class="about-card-icon">👁️</div>
+                    <h3>Notre Vision</h3>
+                    <p>Faire de l'engagement écologique un réflexe collectif. MIPSE rêve d'un pays où écoles, quartiers et entreprises deviennent acteurs du changement pour la planète.</p>
+                </div>
+                <div class="about-card reveal" style="transition-delay: 0.3s;">
+                    <div class="about-card-icon">💚</div>
+                    <h3>Nos Valeurs</h3>
+                    <p>
+                        <strong>Engagement :</strong> Agir avec détermination.<br>
+                        <strong>Solidarité :</strong> Trouver des solutions ensemble.<br>
+                        <strong>Responsabilité :</strong> Protéger notre avenir.<br>
+                        <strong>Éducation :</strong> Éveiller les consciences.<br>
+                        <strong>Innovation :</strong> Créer autrement.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SECTION GRANDS PROJETS (Design Premium) ========== -->
+    <div class="grands-projets-full" id="gprojets">
+        <div class="grands-projets-inner">
+            <div class="section-header reveal">
+                <div class="section-label">⭐ Impact concret</div>
+                <h2>Nos <em>grands projets</em></h2>
+                <p class="section-description">Ici, les idées deviennent des actes. Nos grands projets sont des réponses concrètes à l'urgence environnementale que connaît la Côte d'Ivoire.</p>
+            </div>
+
+            <div class="actions-grid">
+                <!-- Grand Projet 1 -->
+                <div class="action-card reveal">
+                    <div class="image-container">
+                        <img src="Images/Challenge de la solidarité/4.jpg" alt="Challenge de la solidarité">
+                    </div>
+                    <div class="action-content">
+                        <div class="action-header">
+                            <div class="action-status-container">
+                                <span class="gp-badge">⭐ Grand Projet</span>
+                                <span class="action-status status-passee">Terminée</span>
+                                <a href="#galerie" class="photo-btn" onclick="showGallery('solidariteyyy')">📸 Photos</a>
+                            </div>
+                        </div>
+                        <h3>Challenge de la solidarité</h3>
+                        <p>Projet d'éducation au civisme en milieu scolaire par la notion de solidarité, de partage et du social. Plus de 1000 familles vulnérables, veuves et orphelins ont reçu des présents.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SECTION ACTIONS ========== -->
+    <section id="actions">
+        <div class="section-header reveal">
+            <div class="section-label">Nos initiatives</div>
+            <h2>Nos <em>Actions</em></h2>
+            <p class="section-description">Découvrez nos initiatives pour la protection de l'environnement</p>
+        </div>
+
+        <!-- Filtres -->
+        <div class="filter-buttons reveal">
+            <button class="filter-btn active" onclick="filterActions('all')">Toutes</button>
+            <button class="filter-btn" onclick="filterActions('passee')">Passées</button>
+            <button class="filter-btn" onclick="filterActions('encours')">En cours</button>
+            <button class="filter-btn" onclick="filterActions('future')">Futures</button>
+        </div>
+
+        <div class="actions-grid" id="actions-grid">
+            <!-- Action 1 -->
+            <div class="action-card reveal" data-status="passee">
+                <div class="image-container">
+                    <img src="Images/Challenge de la solidarité/4.jpg" alt="Challenge de la solidarité">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-passee">Terminée</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('solidarite')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>Challenge de la solidarité</h3>
+                    <p>Projet d'éducation au civisme en milieu scolaire par la notion de solidarité, de partage et du social. Plus de 1000 familles vulnérables ont reçu des présents.</p>
+                </div>
+            </div>
+
+            <!-- Action 2 -->
+            <div class="action-card reveal" data-status="passee">
+                <div class="image-container">
+                    <img src="Images/projet_pepiniere_agroforesterie/2.jpg" alt="Pépinières agroforesterie">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-passee">Terminée</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('pepinieres')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>Production de pépinières</h3>
+                    <p>Production de pépinières pour l'agroforesterie et la reforestation nationale. Plus de 60.000 plants produits dans 3 localités.</p>
+                </div>
+            </div>
+
+            <!-- Action 3 -->
+            <div class="action-card reveal" data-status="passee">
+                <div class="image-container">
+                    <img src="Images/Projet de production du compost agroverma/3.jpg" alt="Compost agroverma">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-passee">Terminée</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('compost')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>Compost agroverma</h3>
+                    <p>Valorisation des déchets agricoles dans la région de San Pedro. Plus de 600 tonnes de déchets organiques transformés.</p>
+                </div>
+            </div>
+
+            <!-- Action 4 -->
+            <div class="action-card reveal" data-status="passee">
+                <div class="image-container">
+                    <img src="Images/Projet PIF 2/2.jpg" alt="Projet PIF 2">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-passee">Terminée</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('pif2')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>Projet PIF 2</h3>
+                    <p>Contribution à l'exécution du projet PIF 2 dans les forêts classées de Sio et Rapide Grah pour l'agroforesterie et le reboisement.</p>
+                </div>
+            </div>
+
+            <!-- Action 5 -->
+            <div class="action-card reveal" data-status="encours">
+                <div class="image-container">
+                    <img src="Images/ville verte/1.jpg" alt="Ville verte">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-encours">En cours</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('ville-verte')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>Ville verte</h3>
+                    <p>Projet de reforestation et création d'espaces verts. Contribution au reboisement de 1580 hectares de forêts en milieu urbain et rural.</p>
+                </div>
+            </div>
+
+            <!-- Action 6 -->
+            <div class="action-card reveal" data-status="encours">
+                <div class="image-container">
+                    <img src="Images/logo.jpg" alt="École agropastorale">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-encours">En cours</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('ecole-agro')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>Une école, un centre agropastoral</h3>
+                    <p>Promotion de l'entreprenariat agricole et de l'alimentation bio en milieu scolaire. Formation de 28.000 élèves dans 6 établissements.</p>
+                </div>
+            </div>
+
+            <!-- Action 7 -->
+            <div class="action-card reveal" data-status="encours">
+                <div class="image-container">
+                    <img src="Images/logo.jpg" alt="Zéro suicide">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-encours">En cours</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('zero-suicide')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>Santé pour tous - Zéro suicide</h3>
+                    <p>Lutte contre les cas de suicide par la sensibilisation et l'encadrement socio-psychologique.</p>
+                </div>
+            </div>
+
+            <!-- Action 8 -->
+            <div class="action-card reveal" data-status="passee">
+                <div class="image-container">
+                    <img src="Images/logo.jpg" alt="Plateau vert">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-passee">Terminée</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('plateau-vert')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>Plateau vert 3e édition</h3>
+                    <p>Événement environnemental rassemblant décideurs, ONG, experts et entreprises sur les questions d'environnement.</p>
+                </div>
+            </div>
+
+            <!-- Action 9 -->
+            <div class="action-card reveal" data-status="encours">
+                <div class="image-container">
+                    <img src="Images/logo.jpg" alt="J'aime ma cité">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-encours">En cours</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('j-aime-ma-cite')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>J'aime ma cité</h3>
+                    <p>Sensibilisation, assainissement, création d'espace vert et valorisation de l'écotourisme dans le Grand Abidjan et San Pedro.</p>
+                </div>
+            </div>
+
+            <!-- Action 10 -->
+            <div class="action-card reveal" data-status="encours">
+                <div class="image-container">
+                    <img src="Images/logo.jpg" alt="Ferme agropastorale">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-encours">En cours</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('ferme-agro')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>Un jeune, une ferme agropastorale</h3>
+                    <p>Formation des jeunes et femmes en entrepreneuriat, leadership, agriculture et élevage. Création de fermes à Dabou et San Pedro.</p>
+                </div>
+            </div>
+
+            <!-- Action 11 -->
+            <div class="action-card reveal" data-status="encours">
+                <div class="image-container">
+                    <img src="Images/logo.jpg" alt="Clean school">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-encours">En cours</span>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('clean-school')">📸 Photos</a>
+                        </div>
+                    </div>
+                    <h3>Clean school</h3>
+                    <p>Éducation environnementale, assainissement et entretien des toilettes en milieu scolaire. Création de 60+ clubs d'environnement.</p>
+                </div>
+            </div>
+
+            <!-- Action 12 -->
+            <div class="action-card reveal" data-status="future">
+                <div class="image-container">
+                    <img src="Images/logo.jpg" alt="Conférence climat">
+                </div>
+                <div class="action-content">
+                    <div class="action-header">
+                        <div class="action-status-container">
+                            <span class="action-status status-future">À venir</span>
+                        </div>
+                    </div>
+                    <h3>Conférence Climat 2026</h3>
+                    <p>Organisation d'une conférence nationale sur les changements climatiques et leurs impacts sur les forêts ivoiriennes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION GALERIE ========== -->
+    <div class="galerie-full" id="galerie">
+        <div class="galerie-inner">
+            <div class="section-header reveal">
+                <div class="section-label">En images</div>
+                <h2>Galerie <em>Photos</em></h2>
+                <p class="section-description">Découvrez nos événements en images</p>
+            </div>
+
+            <!-- Galerie Challenge Solidarité -->
+            <div class="gallery-section" id="gallery-solidarite">
+                <div class="gallery-header">
+                    <h3>Challenge de la solidarité</h3>
+                    <div class="gallery-info">
+                        <span>📅 Mars 2024</span>
+                        <span>👥 1000+ Bénéficiaires</span>
+                        <span>📍 20 Établissements scolaires</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/1.jpg', 'Distribution cadeaux')">
+                        <img src="Images/Challenge de la solidarité/1.jpg" alt="Distribution cadeaux">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/2.jpg', 'Cérémonie de remise')">
+                        <img src="Images/Challenge de la solidarité/2.jpg" alt="Cérémonie de remise">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/3.jpg', 'Élèves participants')">
+                        <img src="Images/Challenge de la solidarité/3.jpg" alt="Élèves participants">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/4.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/4.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/5.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/5.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/6.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/6.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/7.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/7.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/9.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/9.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/10.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/10.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/11.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/11.jpg" alt="Familles bénéficiaires">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galerie Challenge Solidaritéyyy (Grand Projet) -->
+            <div class="gallery-section" id="gallery-solidariteyyy" style="display:none;">
+                <div class="gallery-header">
+                    <h3>Challenge de la solidarité - Grand Projet</h3>
+                    <div class="gallery-info">
+                        <span>📅 Mars 2024</span>
+                        <span>👥 1000+ Bénéficiaires</span>
+                        <span>📍 20 Établissements scolaires</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/1.jpg', 'Distribution cadeaux')">
+                        <img src="Images/Challenge de la solidarité/1.jpg" alt="Distribution cadeaux">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/2.jpg', 'Cérémonie de remise')">
+                        <img src="Images/Challenge de la solidarité/2.jpg" alt="Cérémonie de remise">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/3.jpg', 'Élèves participants')">
+                        <img src="Images/Challenge de la solidarité/3.jpg" alt="Élèves participants">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/4.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/4.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/5.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/5.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/6.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/6.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/7.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/7.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/9.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/9.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/10.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/10.jpg" alt="Familles bénéficiaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Challenge de la solidarité/11.jpg', 'Familles bénéficiaires')">
+                        <img src="Images/Challenge de la solidarité/11.jpg" alt="Familles bénéficiaires">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galerie Pépinières -->
+            <div class="gallery-section" id="gallery-pepinieres" style="display:none;">
+                <div class="gallery-header">
+                    <h3>Production de pépinières agroforestières</h3>
+                    <div class="gallery-info">
+                        <span>📅 2023-2024</span>
+                        <span>👥 Équipe technique</span>
+                        <span>📍 Abidjan, Songon, San Pedro</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/projet_pepiniere_agroforesterie/1.jpg', 'Plants en pépinière')">
+                        <img src="Images/projet_pepiniere_agroforesterie/1.jpg" alt="Plants en pépinière">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/projet_pepiniere_agroforesterie/2.jpg', 'Préparation des semis')">
+                        <img src="Images/projet_pepiniere_agroforesterie/2.jpg" alt="Préparation des semis">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/projet_pepiniere_agroforesterie/3.jpg', 'Essences forestières')">
+                        <img src="Images/projet_pepiniere_agroforesterie/3.jpg" alt="Essences forestières">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/projet_pepiniere_agroforesterie/4.jpg', 'Plants en pépinière')">
+                        <img src="Images/projet_pepiniere_agroforesterie/4.jpg" alt="Plants en pépinière">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galerie Compost -->
+            <div class="gallery-section" id="gallery-compost" style="display:none;">
+                <div class="gallery-header">
+                    <h3>Production de compost agroverma</h3>
+                    <div class="gallery-info">
+                        <span>📅 2024</span>
+                        <span>👥 Agriculteurs formés</span>
+                        <span>📍 Région de San Pedro</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Projet de production du compost agroverma/1.jpg', 'Compost en production')">
+                        <img src="Images/Projet de production du compost agroverma/1.jpg" alt="Compost en production">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Projet de production du compost agroverma/2.jpg', 'Déchets agricoles')">
+                        <img src="Images/Projet de production du compost agroverma/2.jpg" alt="Déchets agricoles">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Projet de production du compost agroverma/3.jpg', 'Formation pratique')">
+                        <img src="Images/Projet de production du compost agroverma/3.jpg" alt="Formation pratique">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Projet de production du compost agroverma/4.jpg', 'Formation pratique')">
+                        <img src="Images/Projet de production du compost agroverma/4.jpg" alt="Formation pratique">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galerie PIF 2 -->
+            <div class="gallery-section" id="gallery-pif2" style="display:none;">
+                <div class="gallery-header">
+                    <h3>Projet PIF 2</h3>
+                    <div class="gallery-info">
+                        <span>📅 2023-2024</span>
+                        <span>👥 Équipe terrain</span>
+                        <span>📍 Forêts classées de Sio et Rapide Grah</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Projet PIF 2/1.jpg', 'Piquetage forêt')">
+                        <img src="Images/Projet PIF 2/1.jpg" alt="Piquetage forêt">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Projet PIF 2/2.jpg', 'Sensibilisation communautés')">
+                        <img src="Images/Projet PIF 2/2.jpg" alt="Sensibilisation communautés">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/Projet PIF 2/3.jpg', 'Travail de terrain')">
+                        <img src="Images/Projet PIF 2/3.jpg" alt="Travail de terrain">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galerie Ville Verte -->
+            <div class="gallery-section" id="gallery-ville-verte" style="display:none;">
+                <div class="gallery-header">
+                    <h3>Ville Verte - Reforestation urbaine</h3>
+                    <div class="gallery-info">
+                        <span>📅 En cours</span>
+                        <span>👥 Communautés locales</span>
+                        <span>📍 Villes d'Abidjan et San Pedro</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/ville verte/1.jpg', 'Plantation urbaine')">
+                        <img src="Images/ville verte/1.jpg" alt="Plantation urbaine">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/ville verte/2.jpg', 'Espace vert créé')">
+                        <img src="Images/ville verte/2.jpg" alt="Espace vert créé">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/ville verte/3.jpg', 'Jeunes volontaires')">
+                        <img src="Images/ville verte/3.jpg" alt="Jeunes volontaires">
+                    </div>
+                    <div class="gallery-item-container" onclick="openLightbox('Images/ville verte/4.jpg', 'Jeunes volontaires')">
+                        <img src="Images/ville verte/4.jpg" alt="Jeunes volontaires">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Galeries restantes avec placeholder -->
+            <div class="gallery-section" id="gallery-ecole-agro" style="display:none;">
+                <div class="gallery-header">
+                    <h3>Une école, un centre agropastoral</h3>
+                    <div class="gallery-info">
+                        <span>📅 En cours</span>
+                        <span>👥 28.000 élèves formés</span>
+                        <span>📍 6 établissements scolaires</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/logo.jpg', 'Potager scolaire')">
+                        <img src="Images/logo.jpg" alt="Potager scolaire">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section" id="gallery-zero-suicide" style="display:none;">
+                <div class="gallery-header">
+                    <h3>Santé pour tous - Zéro suicide</h3>
+                    <div class="gallery-info">
+                        <span>📅 En cours</span>
+                        <span>👥 Équipe psycho-sociale</span>
+                        <span>📍 Zones d'intervention multiples</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/logo.jpg', 'Séance de sensibilisation')">
+                        <img src="Images/logo.jpg" alt="Séance de sensibilisation">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section" id="gallery-plateau-vert" style="display:none;">
+                <div class="gallery-header">
+                    <h3>Plateau vert 3e édition</h3>
+                    <div class="gallery-info">
+                        <span>📅 2023</span>
+                        <span>👥 500+ Participants</span>
+                        <span>📍 San Pedro</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/logo.jpg', 'Conférenciers')">
+                        <img src="Images/logo.jpg" alt="Conférenciers">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section" id="gallery-j-aime-ma-cite" style="display:none;">
+                <div class="gallery-header">
+                    <h3>J'aime ma cité</h3>
+                    <div class="gallery-info">
+                        <span>📅 En cours</span>
+                        <span>👥 Volontaires locaux</span>
+                        <span>📍 Grand Abidjan & San Pedro</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/logo.jpg', 'Nettoyage de quartier')">
+                        <img src="Images/logo.jpg" alt="Nettoyage de quartier">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section" id="gallery-ferme-agro" style="display:none;">
+                <div class="gallery-header">
+                    <h3>Un jeune, une ferme agropastorale</h3>
+                    <div class="gallery-info">
+                        <span>📅 En cours</span>
+                        <span>👥 700+ Jeunes formés</span>
+                        <span>📍 Dabou & San Pedro</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/logo.jpg', 'Formation pratique')">
+                        <img src="Images/logo.jpg" alt="Formation pratique">
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-section" id="gallery-clean-school" style="display:none;">
+                <div class="gallery-header">
+                    <h3>Clean school</h3>
+                    <div class="gallery-info">
+                        <span>📅 En cours</span>
+                        <span>👥 60+ Clubs créés</span>
+                        <span>📍 Établissements scolaires</span>
+                    </div>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item-container" onclick="openLightbox('Images/logo.jpg', 'Club environnement')">
+                        <img src="Images/logo.jpg" alt="Club environnement">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Navigation galerie -->
+            <div class="gallery-nav">
+                <button class="gallery-nav-btn" onclick="prevGallery()" id="prev-btn">← Précédent</button>
+                <span id="gallery-counter">1/12</span>
+                <button class="gallery-nav-btn" onclick="nextGallery()" id="next-btn">Suivant →</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== SECTION PARTENAIRES ========== -->
+    <section id="partenaires">
+        <div class="section-header reveal">
+            <div class="section-label">Ils nous soutiennent</div>
+            <h2>Nos <em>Partenaires</em></h2>
+            <p class="section-description">Ils nous font confiance et soutiennent nos actions</p>
+        </div>
+        <div class="partners-grid">
+            <!-- Pour chaque partenaire : remplacer le src par le chemin du logo -->
+            <!-- Le texte alt sert de fallback si l'image ne charge pas -->
+            <div class="partner-logo reveal">
+                <img src="#" alt="Ministère de l'Environnement">
+            </div>
+            <div class="partner-logo reveal">
+                <img src="Images/partenaires/onu-environnement.png" alt="ONU Environnement">
+            </div>
+            <div class="partner-logo reveal">
+                <img src="Images/partenaires/u-report-civ.png" alt="U-REPPORT CIV">
+            </div>
+            <div class="partner-logo reveal">
+                <img src="Images/partenaires/green-africa.png" alt="Fondation Green Africa">
+            </div>
+            <div class="partner-logo reveal">
+                <img src="Images/partenaires/universite-abidjan.png" alt="Université d'Abidjan">
+            </div>
+            <div class="partner-logo reveal">
+                <img src="Images/partenaires/union-europeenne.png" alt="Union Européenne">
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SECTION CONTACTS ========== -->
+    <section id="contacts">
+        <div class="section-header reveal">
+            <div class="section-label">Parlons-en</div>
+            <h2>Contactez-<em>nous</em></h2>
+            <p class="section-description">Rejoignez notre mouvement ou posez-nous vos questions</p>
+        </div>
+        <div class="contact-content">
+            <div class="contact-info reveal-left">
+                <h3>Informations</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>Abidjan, Côte d'Ivoire</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>contact@mipse.org</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div>+225 XX XX XX XX XX</div>
+                </div>
+            </div>
+            <div class="social-media reveal-right">
+                <h3>Suivez-nous</h3>
+                <p style="color: var(--gray-500); margin-bottom: 0.5rem;">Restez informés de nos actions et événements</p>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Facebook">📘</a>
+                    <a href="#" class="social-link" title="TikTok">🎵</a>
+                    <a href="#" class="social-link" title="LinkedIn">💼</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>MIPSE</h3>
+                <p>Le Mouvement Ivoirien pour la Sauvegarde de l'Environnement s'engage pour un avenir durable en Côte d'Ivoire.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens Rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="#accueil">🏠 Accueil</a></li>
+                    <li><a href="#apropos">📖 À propos</a></li>
+                    <li><a href="#actions">🎯 Nos Actions</a></li>
+                    <li><a href="#galerie">📸 Galerie Photos</a></li>
+                    <li><a href="#partenaires">🤝 Partenaires</a></li>
+                    <li><a href="#contacts">📞 Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Nos Actions</h3>
+                <ul class="footer-links">
+                    <li><a href="#actions">🌱 Reforestation</a></li>
+                    <li><a href="#actions">♻️ Gestion des déchets</a></li>
+                    <li><a href="#actions">🏫 Éducation environnementale</a></li>
+                    <li><a href="#actions">👥 Mobilisation communautaire</a></li>
+                    <li><a href="#actions">🌿 Agriculture durable</a></li>
+                    <li><a href="#actions">💧 Protection des ressources</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Réseaux Sociaux</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="Facebook">📘</a>
+                    <a href="#" class="social-link" title="TikTok">🎵</a>
+                    <a href="#" class="social-link" title="LinkedIn">💼</a>
+                    <a href="#" class="social-link" title="YouTube">📹</a>
+                    <a href="#" class="social-link" title="Instagram">📷</a>
+                </div>
+                <p style="margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.5);">
+                    Suivez-nous pour rester informé de nos dernières actions et événements.
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 MIPSE - Mouvement Ivoirien pour la Sauvegarde de l'Environnement. Tous droits réservés.</p>
+            <p style="margin-top: 0.5rem;">Site développé avec 💚 pour la protection de notre environnement</p>
+        </div>
+    </footer>
+
+    <!-- ========== JAVASCRIPT ========== -->
+    <script>
+        // ======================================================
+        // ANIMATION AU SCROLL (Intersection Observer)
+        // Détecte quand les éléments entrent dans le viewport
+        // et leur ajoute la classe 'visible' pour déclencher les animations
+        // ======================================================
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe tous les éléments avec les classes d'animation
+        document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+            observer.observe(el);
+        });
+
+        // ======================================================
+        // COMPTEUR ANIMÉ DES STATISTIQUES DU HERO
+        // Anime les chiffres de 0 jusqu'à leur valeur finale
+        // ======================================================
+        function animateCounters() {
+            var counters = document.querySelectorAll('.hero-stat-number[data-count]');
+            counters.forEach(function(counter) {
+                var target = parseInt(counter.getAttribute('data-count'));
+                var duration = 2500; // Durée de l'animation en ms
+                var startTime = null;
+
+                function updateCount(timestamp) {
+                    if (!startTime) startTime = timestamp;
+                    var progress = Math.min((timestamp - startTime) / duration, 1);
+                    // Utilise une courbe ease-out pour un effet naturel
+                    var easeOut = 1 - Math.pow(1 - progress, 3);
+                    var current = Math.floor(easeOut * target);
+
+                    // Formatage du nombre (ajoute + à la fin)
+                    if (current >= 1000) {
+                        counter.textContent = current.toLocaleString('fr-FR') + '+';
+                    } else {
+                        counter.textContent = current + '+';
+                    }
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCount);
+                    }
+                }
+                requestAnimationFrame(updateCount);
+            });
+        }
+
+        // Déclenche l'animation des compteurs quand le hero est visible
+        var heroObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    heroObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        var heroStats = document.querySelector('.hero-stats');
+        if (heroStats) {
+            heroObserver.observe(heroStats);
+        }
+
+        // ======================================================
+        // EFFET DE SCROLL SUR LE HEADER
+        // Réduit le header et ajoute une ombre au scroll
+        // ======================================================
+        window.addEventListener('scroll', function() {
+            var header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ======================================================
+        // MENU MOBILE
+        // Ouvre/ferme le menu hamburger
+        // ======================================================
+        function toggleMenu() {
+            document.getElementById('nav-menu').classList.toggle('active');
+        }
+
+        // Ferme le menu quand on clique sur un lien
+        document.querySelectorAll('nav a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                document.getElementById('nav-menu').classList.remove('active');
+            });
+        });
+
+        // ======================================================
+        // FILTRE DES ACTIONS PAR STATUT
+        // Affiche/masque les cartes selon le statut sélectionné
+        // ======================================================
+        function filterActions(status) {
+            var cards = document.querySelectorAll('#actions-grid .action-card');
+            var buttons = document.querySelectorAll('.filter-btn');
+
+            // Met à jour le bouton actif
+            buttons.forEach(function(btn) { btn.classList.remove('active'); });
+            event.target.classList.add('active');
+
+            // Filtre les cartes avec animation
+            cards.forEach(function(card, index) {
+                if (status === 'all' || card.getAttribute('data-status') === status) {
+                    card.style.display = 'block';
+                    card.style.animation = 'fadeInUp 0.5s ease ' + (index * 0.05) + 's both';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // ======================================================
+        // SYSTÈME LIGHTBOX
+        // Affichage plein écran des images avec navigation
+        // ======================================================
+        var currentImages = [];
+        var currentIndex = 0;
+
+        // Ouvre le lightbox avec une image spécifique
+        function openLightbox(imageSrc, caption) {
+            caption = caption || '';
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            var lightboxCaption = document.getElementById('lightbox-caption');
+
+            // Récupère toutes les images de la galerie visible
+            var currentGallery = document.querySelector('.gallery-section:not([style*="display: none"])');
+            if (currentGallery) {
+                var images = currentGallery.querySelectorAll('.gallery-item-container img');
+                currentImages = Array.from(images).map(function(img) {
+                    return { src: img.src, alt: img.alt };
+                });
+                currentIndex = currentImages.findIndex(function(img) {
+                    return img.src.includes(imageSrc.split('/').pop());
+                });
+            }
+
+            // Affiche l'image dans le lightbox
+            lightboxImg.src = imageSrc;
+            lightboxImg.alt = caption;
+            lightboxCaption.textContent = caption;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Ferme le lightbox
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Image suivante dans le lightbox
+        function nextLightboxImage() {
+            if (currentImages.length > 0) {
+                currentIndex = (currentIndex + 1) % currentImages.length;
+                updateLightboxImage();
+            }
+        }
+
+        // Image précédente dans le lightbox
+        function prevLightboxImage() {
+            if (currentImages.length > 0) {
+                currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+                updateLightboxImage();
+            }
+        }
+
+        // Met à jour l'image affichée dans le lightbox
+        function updateLightboxImage() {
+            var lightboxImg = document.getElementById('lightbox-img');
+            var lightboxCaption = document.getElementById('lightbox-caption');
+            lightboxImg.src = currentImages[currentIndex].src;
+            lightboxImg.alt = currentImages[currentIndex].alt;
+            lightboxCaption.textContent = currentImages[currentIndex].alt;
+        }
+
+        // Navigation clavier : ESC pour fermer, flèches pour naviguer
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowRight') nextLightboxImage();
+            if (e.key === 'ArrowLeft') prevLightboxImage();
+        });
+
+        // Ferme le lightbox en cliquant en dehors de l'image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) closeLightbox();
+        });
+
+        // ======================================================
+        // SYSTÈME DE NAVIGATION DES GALERIES
+        // Permet de naviguer entre les différentes galeries
+        // ======================================================
+        var galleries = [
+            'solidarite', 'solidariteyyy', 'pepinieres', 'compost', 'pif2',
+            'ville-verte', 'ecole-agro', 'zero-suicide',
+            'plateau-vert', 'j-aime-ma-cite', 'ferme-agro', 'clean-school'
+        ];
+        var currentGalleryIndex = 0;
+
+        // Affiche une galerie spécifique par son identifiant
+        function showGallery(galleryId) {
+            // Masque toutes les galeries
+            galleries.forEach(function(id) {
+                var gallery = document.getElementById('gallery-' + id);
+                if (gallery) gallery.style.display = 'none';
+            });
+
+            // Affiche la galerie cible avec animation
+            var targetGallery = document.getElementById('gallery-' + galleryId);
+            if (targetGallery) {
+                targetGallery.style.display = 'block';
+                targetGallery.style.animation = 'fadeInUp 0.5s ease both';
+                currentGalleryIndex = galleries.indexOf(galleryId);
+                updateGalleryNav();
+                // Réapplique la limitation à 4 photos
+                limitGalleryPhotos(targetGallery);
+            }
+
+            // Scroll fluide vers la galerie
+            document.getElementById('galerie').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Galerie suivante
+        function nextGallery() {
+            if (currentGalleryIndex < galleries.length - 1) {
+                currentGalleryIndex++;
+                showGallery(galleries[currentGalleryIndex]);
+            }
+        }
+
+        // Galerie précédente
+        function prevGallery() {
+            if (currentGalleryIndex > 0) {
+                currentGalleryIndex--;
+                showGallery(galleries[currentGalleryIndex]);
+            }
+        }
+
+        // Met à jour le compteur et l'état des boutons de navigation
+        function updateGalleryNav() {
+            document.getElementById('gallery-counter').textContent =
+                (currentGalleryIndex + 1) + '/' + galleries.length;
+            document.getElementById('prev-btn').disabled = (currentGalleryIndex === 0);
+            document.getElementById('next-btn').disabled = (currentGalleryIndex === galleries.length - 1);
+        }
+
+        // ======================================================
+        // LIMITATION DES GALERIES À 4 PHOTOS + BOUTON "+X"
+        // Cache les photos au-delà de 4 et ajoute un bouton "+X photos"
+        // ======================================================
+        var GALLERY_LIMIT = 4;
+
+        function limitGalleryPhotos(gallerySection) {
+            var grid = gallerySection.querySelector('.gallery-grid');
+            if (!grid) return;
+
+            var items = grid.querySelectorAll('.gallery-item-container');
+            var total = items.length;
+
+            // Supprime l'ancien bouton "+X" et "Voir moins" s'ils existent
+            var oldMore = grid.querySelector('.gallery-show-more');
+            if (oldMore) oldMore.remove();
+            var oldLess = gallerySection.querySelector('.gallery-show-less');
+            if (oldLess) oldLess.remove();
+
+            if (total <= GALLERY_LIMIT) {
+                // Pas besoin de limiter
+                items.forEach(function(item) { item.classList.remove('gallery-hidden'); });
+                return;
+            }
+
+            var remaining = total - (GALLERY_LIMIT - 1); // -1 car le 4e slot = bouton "+X"
+
+            // Cache les items à partir du 4e (index 3)
+            items.forEach(function(item, i) {
+                if (i >= GALLERY_LIMIT - 1) {
+                    item.classList.add('gallery-hidden');
+                } else {
+                    item.classList.remove('gallery-hidden');
+                }
+            });
+
+            // Crée le bouton "+X photos" avec la prochaine photo en arrière-plan
+            var showMoreBtn = document.createElement('div');
+            showMoreBtn.className = 'gallery-show-more';
+
+            // Récupère la source de la prochaine photo cachée (le 4e item, index 3)
+            // et l'utilise comme image d'arrière-plan du bouton "+X"
+            var nextPhoto = items[GALLERY_LIMIT - 1];
+            var nextPhotoSrc = nextPhoto ? nextPhoto.querySelector('img').src : '';
+
+            // Structure : image de fond + overlay sombre + texte "+X photos"
+            var imgTag = nextPhotoSrc ? '<img src="' + nextPhotoSrc + '" alt="Voir plus">' : '';
+            showMoreBtn.innerHTML = imgTag + '<span class="gallery-show-more-count">+' + remaining + '</span><span class="gallery-show-more-label">photos</span>';
+
+            showMoreBtn.addEventListener('click', function() {
+                expandGallery(gallerySection);
+            });
+            grid.appendChild(showMoreBtn);
+        }
+
+
+        function expandGallery(gallerySection) {
+            var grid = gallerySection.querySelector('.gallery-grid');
+            if (!grid) return;
+
+            // Affiche toutes les photos
+            var items = grid.querySelectorAll('.gallery-item-container');
+            items.forEach(function(item) {
+                item.classList.remove('gallery-hidden');
+                item.style.animation = 'fadeInUp 0.4s ease both';
+            });
+
+            // Supprime le bouton "+X"
+            var moreBtn = grid.querySelector('.gallery-show-more');
+            if (moreBtn) moreBtn.remove();
+
+            // Ajoute un bouton "Voir moins"
+            var lessDiv = document.createElement('div');
+            lessDiv.className = 'gallery-show-less';
+            lessDiv.innerHTML = '<button class="gallery-show-less-btn">↑ Voir moins</button>';
+            lessDiv.querySelector('button').addEventListener('click', function() {
+                limitGalleryPhotos(gallerySection);
+                gallerySection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+            gallerySection.appendChild(lessDiv);
+        }
+
+        function applyGalleryLimits() {
+            document.querySelectorAll('.gallery-section').forEach(function(section) {
+                limitGalleryPhotos(section);
+            });
+        }
+
+        // ======================================================
+        // INITIALISATION AU CHARGEMENT DE LA PAGE
+        // ======================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Affiche la première galerie
+            showGallery('solidarite');
+
+            // Applique la limitation à 4 photos sur toutes les galeries
+            applyGalleryLimits();
+
+            // Configure les boutons "Voir les photos"
+            document.querySelectorAll('.photo-btn').forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    var onclickAttr = this.getAttribute('onclick');
+                    if (onclickAttr) {
+                        var match = onclickAttr.match(/showGallery\('([^']+)'\)/);
+                        if (match && match[1]) {
+                            showGallery(match[1]);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
