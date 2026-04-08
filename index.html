@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+    <link rel="icon" type="image/png" href="logosansA1.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIPSE - Mouvement Ivoirien pour la Sauvegarde de l'Environnement</title>
+    <title>MIPSE</title>
     <meta name="description" content="MIPSE - Agissons ensemble pour un avenir durable en Côte d'Ivoire. Reboisement, sensibilisation, formation et mobilisation citoyenne.">
     
     <!-- Google Fonts -->
@@ -65,6 +66,7 @@
             background: var(--white);
             overflow-x: hidden;
         }
+
 
         /* ========== ANIMATIONS KEYFRAMES ========== */
         @keyframes fadeInUp {
@@ -597,6 +599,64 @@
             margin-bottom: 1.2rem; font-size: 1.05rem;
             color: var(--gray-600); line-height: 1.9;
         }
+
+        /* ========== MOT DU PRÉSIDENT - Layout photo + texte ========== */
+        .president-section {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+            max-width: 900px;
+            margin: 0 auto 3rem;
+            padding: 0 1rem;
+        }
+        .president-photo {
+            flex-shrink: 0;
+            width: 280px;
+        }
+        .president-photo img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 4px solid var(--green-200);
+        }
+        .president-photo-name {
+            text-align: center;
+            margin-top: 1rem;
+            font-family: var(--font-display);
+            font-weight: 700;
+            color: var(--green-800);
+            font-size: 1.1rem;
+        }
+        .president-photo-title {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            font-weight: 500;
+            margin-top: 0.2rem;
+        }
+        .president-text {
+            flex: 1;
+        }
+        .president-text p {
+            margin-bottom: 1.2rem; font-size: 1.05rem;
+            color: var(--gray-600); line-height: 1.9;
+        }
+        @media (max-width: 768px) {
+            .president-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .president-photo {
+                width: 220px;
+            }
+            .president-photo img {
+                height: 280px;
+            }
+        }
+
         .about-quote {
             margin: 2.5rem 0;
             padding: 2rem 2.5rem;
@@ -663,30 +723,28 @@
         }
 
         /* ========== GRANDS PROJETS (section premium) ========== */
-        /* Style distinct de la section Actions pour marquer l'importance */
+        /* Arrière-plan élégant avec texture subtile */
         .grands-projets-full {
-            background: linear-gradient(180deg, var(--green-900) 0%, #1a2e0a 60%, var(--green-800) 100%);
+            background: linear-gradient(160deg, var(--green-900) 0%, var(--green-800) 40%, #1a3a12 70%, var(--green-900) 100%);
             padding: 6rem 0;
             position: relative;
             overflow: hidden;
         }
-        /* Décoration lumineuse en arrière-plan */
+        /* Motif géométrique subtil en arrière-plan */
         .grands-projets-full::before {
             content: '';
             position: absolute;
-            top: -200px; right: -200px;
-            width: 600px; height: 600px;
-            background: radial-gradient(circle, rgba(212, 168, 85, 0.1), transparent 70%);
-            border-radius: 50%;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(212, 168, 85, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(90, 154, 53, 0.08) 0%, transparent 50%);
             pointer-events: none;
         }
         .grands-projets-full::after {
             content: '';
             position: absolute;
-            bottom: -150px; left: -150px;
-            width: 500px; height: 500px;
-            background: radial-gradient(circle, rgba(90, 154, 53, 0.1), transparent 70%);
-            border-radius: 50%;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
             pointer-events: none;
         }
         .grands-projets-inner {
@@ -1057,18 +1115,18 @@
         /* Style pour les images de logos partenaires */
         .partner-logo img {
             max-width: 100%;
-            max-height: 80px;
+            max-height: 90px;
             object-fit: contain;
             transition: var(--transition-base);
-            filter: grayscale(60%) opacity(0.7); /* Grisé par défaut */
+            /*filter: grayscale(60%) opacity(0.7); /* Grisé par défaut */
         }
         .partner-logo:hover img {
             filter: grayscale(0%) opacity(1); /* Couleur au survol */
             transform: scale(1.08);
         }
-        }
+        
         .partner-logo:hover {
-            transform: translateY(-4px);
+            transform: translateY(-10px);
             box-shadow: var(--shadow-md);
             border-color: var(--green-300);
             color: var(--green-700);
@@ -1076,16 +1134,34 @@
 
         /* ========== CONTACTS ========== */
         .contact-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem; margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            margin-top: 2rem;
         }
-        .contact-info, .social-media {
+        /* Chaque bloc indépendant avec sa propre taille */
+        .contact-info {
             background: var(--white);
-            padding: 2.5rem; border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
             box-shadow: var(--shadow-md);
             transition: var(--transition-base);
             border: 1px solid rgba(0,0,0,0.04);
+            max-width: 700px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        .social-media {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-base);
+            border: 1px solid rgba(0,0,0,0.04);
+            max-width: 500px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
         }
         .contact-info:hover, .social-media:hover {
             transform: translateY(-4px);
@@ -1111,20 +1187,28 @@
         }
         .social-links {
             display: flex; gap: 1rem; margin-top: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         .social-link {
-            width: 50px; height: 50px;
+            width: 54px; height: 54px;
             background: linear-gradient(135deg, var(--green-600), var(--green-700));
-            color: var(--white); border-radius: var(--radius-md);
+            color: var(--white); border-radius: var(--radius-full);
             display: flex; align-items: center; justify-content: center;
-            text-decoration: none; font-size: 1.4rem;
+            text-decoration: none; font-size: 1.3rem;
             transition: var(--transition-spring);
-            box-shadow: 0 3px 12px rgba(74, 124, 44, 0.25);
+            box-shadow: 0 4px 15px rgba(74, 124, 44, 0.25);
         }
         .social-link:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(74, 124, 44, 0.4);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(74, 124, 44, 0.4);
         }
+        /* Couleurs individuelles au hover pour chaque réseau social */
+        .social-link.fb:hover { background: linear-gradient(135deg, #1877F2, #0d65d9); box-shadow: 0 8px 25px rgba(24, 119, 242, 0.4); }
+        .social-link.tt:hover { background: linear-gradient(135deg, #010101, #333); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); }
+        .social-link.li:hover { background: linear-gradient(135deg, #0A66C2, #004182); box-shadow: 0 8px 25px rgba(10, 102, 194, 0.4); }
+        .social-link.yt:hover { background: linear-gradient(135deg, #FF0000, #cc0000); box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4); }
+        .social-link.ig:hover { background: linear-gradient(135deg, #E4405F, #C13584, #F77737); box-shadow: 0 8px 25px rgba(228, 64, 95, 0.4); }
 
         /* ========== FOOTER ========== */
         footer {
@@ -1163,6 +1247,30 @@
             color: var(--green-300);
             transform: translateX(4px);
         }
+        /* Icônes réseaux sociaux dans le footer */
+        .footer-social-links {
+            display: flex; gap: 0.8rem; flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+        .footer-social-link {
+            width: 44px; height: 44px;
+            border-radius: var(--radius-full);
+            display: flex; align-items: center; justify-content: center;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: var(--transition-spring);
+            color: var(--white);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+        .footer-social-link:hover {
+            transform: translateY(-3px) scale(1.1);
+        }
+        .footer-social-link.fb:hover { background: #1877F2; border-color: #1877F2; }
+        .footer-social-link.tt:hover { background: #333; border-color: #333; }
+        .footer-social-link.li:hover { background: #0A66C2; border-color: #0A66C2; }
+        .footer-social-link.yt:hover { background: #FF0000; border-color: #FF0000; }
+        .footer-social-link.ig:hover { background: #E4405F; border-color: #E4405F; }
         .copyright {
             text-align: center; padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.08);
@@ -1198,13 +1306,14 @@
             .hero-buttons { flex-direction: column; align-items: center; }
             .btn { width: 100%; max-width: 280px; justify-content: center; }
             .actions-grid { grid-template-columns: 1fr; }
-            .gallery-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 0.8rem; }
+            /* Galerie mobile : grille 2x2 fixe pour voir les 4 photos d'un coup */
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
             .gallery-info { flex-direction: column; gap: 0.3rem; }
             .action-header { flex-direction: column; align-items: flex-start; }
             .action-status-container { flex-direction: column; align-items: flex-start; }
             .footer-content { grid-template-columns: 1fr; gap: 2rem; }
             .image-container::after { font-size: 1.5rem; }
-            .gallery-item-container::before { font-size: 2rem; }
+            .gallery-item-container::before { font-size: 1.5rem; }
         }
 
     </style>
@@ -1220,7 +1329,8 @@
         </div>
         <div class="lightbox-content">
             <img id="lightbox-img" src="" alt="">
-            <div class="lightbox-caption" id="lightbox-caption"></div>
+            <!-- Caption masqué : les utilisateurs ne veulent pas de texte descriptif -->
+            <div class="lightbox-caption" id="lightbox-caption" style="display: none;"></div>
         </div>
     </div>
 
@@ -1234,7 +1344,8 @@
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <nav>
                 <ul id="nav-menu">
-                    <li><a href="#accueil">Accueil</a></li>
+                    <!-- <li><a href="#accueil">Accueil</a></li> -->
+                    <li><a href="#mopresi">Mot du Président</a></li>
                     <li><a href="#apropos">À propos</a></li>
                     <li><a href="#actions">Actions</a></li>
                     <li><a href="#gprojets">Grands Projets</a></li>
@@ -1289,7 +1400,7 @@
             </div>
 
             <!-- Chiffres clés animés -->
-            <div class="hero-stats">
+            <!-- <div class="hero-stats">
                 <div class="hero-stat">
                     <span class="hero-stat-number" data-count="+100">0</span>
                     <span class="hero-stat-label">Plants produits</span>
@@ -1302,11 +1413,11 @@
                     <span class="hero-stat-number" data-count="+500">0</span>
                     <span class="hero-stat-label">Élèves formés</span>
                 </div>
-                <!-- <div class="hero-stat">
+                <div class="hero-stat">
                     <span class="hero-stat-number" data-count="600">0</span>
                     <span class="hero-stat-label">Tonnes valorisées</span>
                 </div> -->
-            </div>
+            <!--</div> -->
         </div>
 
         <!-- Indicateur de scroll -->
@@ -1318,6 +1429,47 @@
         </div> -->
     </section>
     
+
+    <!-- ========== SECTION MOT DU PRÉSIDENT ========== -->
+    <section class="about-full" id="mopresi">
+        <div class="about-inner">
+            <div class="section-header reveal">
+                <h2>Mot du <em>Président Fondateur</em></h2>
+            </div>
+            <!-- Layout photo + texte côte à côte -->
+            <div class="president-section reveal">
+                <!-- Photo du président avec légende -->
+                <div class="president-photo">
+                    <img src="Images/presi.jpeg" alt="M. TIEMOKO, Président Fondateur du MIPSE">
+                    <div class="president-photo-name">M. TIEMOKO</div>
+                    <div class="president-photo-title">Président Fondateur</div>
+                </div>
+                <!-- Texte du mot du président -->
+                <div class="about-text reveal">
+                    <p>Mesdames et messieurs les autorités,</p>
+                    <p>Chers représentants des institutions,</p>
+                    <p>Chères communautés partenaires,</p>
+                    <p>C'est avec une profonde émotion et une immense gratitude que je vous présente ce qui, pour moi, n'est pas qu'un projet, mais un appel du cœur : la naissance de l'ONG MIPSE (Mouvement Ivoirien Pour la Sauvegarde de l'Environnement).</p>
+
+                    <center><div class="section-label">POURQUOI CE MOUVEMENT ?</div></center>
+
+                    <p>Parce que j'ai vu, jour après jour, notre belle côte d'Ivoire s'essouffler sous le poids de la déforestation, de pollutions et du silence.</p>
+                    <p>Parce que j'ai vu nos rivières pleurer, nos forêts disparaître et nos enfants respirer un air chargé d'incertitude.</p>
+                    <p>Mais j'ai aussi vu l'espoir.</p>
+                    <p>Je l'ai vu dans les yeux d'un jeune qui plante un arbre, dans la voix d'une mère qui refuse les sachets plastiques, dans le courage d'une communauté qui protège sa terre.</p>
+                    <p>Cet espoir, nous devons le porter, le canaliser, le faire grandir ensemble.</p>
+                    <p>Le MIPSE est né de cette urgence, cette conviction que protéger l'environnement coûte cher, mais ne rien faire coûtera beaucoup plus cher à notre avenir, nos enfants et notre dignité.</p>
+                    <p>Ce n'est pas une mission que je porte seul : c'est un combat que nous devons mener ensemble, parce que l'environnement ne connaît pas de frontières politiques ni sociales.</p>
+                    <p>Nous avons l'ambition d'agir concrètement : sensibiliser, reboiser, former, mobiliser. Mais surtout, <b>RALLUMER LA FLAMME DU RESPECT DE LA NATURE DANS LE CŒUR DE CHAQUE IVOIRIEN.</b></p>
+                    <p>Je vous tends aujourd'hui la main, non pas seulement pour soutenir une ONG, mais pour bâtir un mouvement national, une force citoyenne engagée pour la vie, pour la terre et pour l'avenir.</p>
+                    <div class="about-quote">
+                        Ensemble, faisons du MIPSE la voix verte de la Côte d'Ivoire.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ========== SECTION À PROPOS ========== -->
     <div class="about-full" id="apropos">
         <div class="about-inner">
@@ -1335,9 +1487,6 @@
                 
                 <p>Le MIPSE s'engage ainsi à agir concrètement sur le terrain par la sensibilisation, le reboisement, la formation et la mobilisation citoyenne. Plus qu'une simple ONG, nous construisons un mouvement national, une force citoyenne unie pour la vie, pour la terre et pour les générations futures.</p>
                 
-                <div class="about-quote">
-                    Ensemble, faisons du MIPSE la voix verte de la Côte d'Ivoire.
-                </div>
             </div>
 
             <div class="about-content">
@@ -1955,23 +2104,36 @@
             <!-- Pour chaque partenaire : remplacer le src par le chemin du logo -->
             <!-- Le texte alt sert de fallback si l'image ne charge pas -->
             <div class="partner-logo reveal">
-                <img src="#" alt="Ministère de l'Environnement">
+                <img src="Images/partenaires/1.jpeg" alt="">
             </div>
             <div class="partner-logo reveal">
-                <img src="Images/partenaires/onu-environnement.png" alt="ONU Environnement">
+                <img src="Images/partenaires/2.png" alt="">
             </div>
             <div class="partner-logo reveal">
-                <img src="Images/partenaires/u-report-civ.png" alt="U-REPPORT CIV">
+                <img src="Images/partenaires/3.png" alt="">
             </div>
             <div class="partner-logo reveal">
-                <img src="Images/partenaires/green-africa.png" alt="Fondation Green Africa">
+                <img src="Images/partenaires/4.png" alt="">
             </div>
             <div class="partner-logo reveal">
-                <img src="Images/partenaires/universite-abidjan.png" alt="Université d'Abidjan">
+                <img src="Images/partenaires/5.png" alt="">
             </div>
             <div class="partner-logo reveal">
-                <img src="Images/partenaires/union-europeenne.png" alt="Union Européenne">
+                <img src="Images/partenaires/6.png" alt="">
             </div>
+            <div class="partner-logo reveal">
+                <img src="Images/partenaires/7.jpg" alt="">
+            </div>
+            <div class="partner-logo reveal">
+                <img src="Images/partenaires/8.webp" alt="">
+            </div>
+            <div class="partner-logo reveal">
+                <img src="Images/partenaires/9.jpg" alt="">
+            </div>
+            <div class="partner-logo reveal">
+                <img src="Images/partenaires/10.jpg" alt="">
+            </div>
+            
         </div>
     </section>
 
@@ -1998,15 +2160,16 @@
                     <div>0758679833<br>0500327258<br>0748164172</div>
                 </div>
             </div>
+            <!-- Bloc Suivez-nous indépendant -->
             <div class="social-media reveal-right">
                 <h3>Suivez-nous</h3>
-                <p style="color: var(--gray-500); margin-bottom: 0.5rem;">Restez informés de nos actions et événements</p>
+                <p style="color: var(--gray-500); margin-bottom: 1rem;">Restez informés de nos actions et événements sur nos réseaux sociaux.</p>
                 <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="social-link fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="social-link tt"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" target="_blank" class="social-link li"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" class="social-link yt"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="social-link ig"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -2030,14 +2193,15 @@
                     <li><a href="#contacts">📞 Contact</a></li>
                 </ul>
             </div>
+            <!-- Réseaux sociaux du footer avec icônes redesignées -->
             <div class="footer-section">
                 <h3>Réseaux Sociaux</h3>
-                <div class="social-links">
-                    <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <div class="footer-social-links">
+                    <a href="#" target="_blank" class="footer-social-link fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank" class="footer-social-link tt"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" target="_blank" class="footer-social-link li"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank" class="footer-social-link yt"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank" class="footer-social-link ig"><i class="fab fa-instagram"></i></a>
                 </div>
                 <p style="margin-top: 1.5rem; font-size: 0.85rem; color: rgba(255,255,255,0.5);">
                     Suivez-nous pour rester informé de nos dernières actions et événements.
@@ -2046,7 +2210,6 @@
         </div>
         <div class="copyright">
             <p>&copy; 2025 MIPSE - Mouvement Ivoirien pour la Sauvegarde de l'Environnement. Tous droits réservés.</p>
-            <p style="margin-top: 0.5rem;">Site développé avec 💚 pour la protection de notre environnement</p>
         </div>
     </footer>
 
