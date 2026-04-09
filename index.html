@@ -475,12 +475,15 @@
             text-transform: uppercase;
         }
 
+
+        
         /* Indicateur de scroll */
         .scroll-indicator {
-            position: absolute; bottom: 2rem; left: 50%;
+            position: absolute; bottom: 2rem; left: 50%; 
             transform: translateX(-50%);
             animation: float 3s ease-in-out infinite;
             z-index: 2;
+
         }
         .scroll-indicator a {
             display: flex; flex-direction: column; align-items: center;
@@ -657,7 +660,6 @@
     .president-section {
         display: block; /* On enlève le flex pour permettre l'enroulement */
         max-width: 900px;
-        margin: 0 auto 3rem;
         padding: 0 1rem;
         content: "";
         display: table;
@@ -666,7 +668,6 @@
         /* On nettoie le conteneur parent pour être sûr qu'il ne bloque rien */
         display: block !important;
         width: 100%;
-        max-width: 900px;
         margin: 0 auto;
         
     }
@@ -1427,7 +1428,7 @@
             <p>Ensemble, engageons-nous pour un avenir durable Reboisement, sensibilisation et mobilisation citoyenne au cœur de notre action</p>
             
             <div class="hero-buttons">
-                <a href="https://forms.gle/FckktvR36vUENe618" class="btn btn-primary"><i class="fas fa-fist-raised" style="color: #4CAF50;"></i> Rejoindre le mouvement</a>
+                <a href="https://forms.gle/FckktvR36vUENe618" class="btn btn-primary">Rejoindre le mouvement</a>
                 <a href="https://forms.gle/i4DFF8jyZaGmDLGP7" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fas fa-heart" style="color: #4CAF50;"></i>Faire un don</a>
             </div>
 
@@ -1453,13 +1454,13 @@
         </div>
 
         <!-- Indicateur de scroll -->
-        <div class="scroll-indicator">
+        <!-- <div class="scroll-indicator">
             <a href="#apropos">
                 <span>Découvrir</span>
                 <span class="scroll-arrow">↓</span>
             </a>
-        </div>
-    </section> <br> <br>
+        </div> -->
+    </section>
     
 
     <!-- ========== SECTION MOT DU PRÉSIDENT ========== -->
@@ -1502,7 +1503,7 @@
                 </div>
             </div>
         </div>
-    </section> <br>
+    </section>
 
     <!-- ========== SECTION À PROPOS ========== -->
     <div class="about-full" id="apropos">
