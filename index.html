@@ -57,7 +57,12 @@
         }
 
         /* ========== RESET & BASE ========== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { 
+            margin: 0;
+            padding: 0; 
+            box-sizing: border-box; 
+            /* border: 1px solid red !important; */
+        }
         html { scroll-behavior: smooth; }
         body { 
             font-family: var(--font-body);
@@ -65,6 +70,7 @@
             color: var(--gray-700);
             background: var(--white);
             overflow-x: hidden;
+            
         }
 
 
@@ -600,83 +606,6 @@
             color: var(--gray-600); line-height: 1.9;
         }
 
-        /* ========== MOT DU PRÉSIDENT - Layout photo + texte ========== */
-        .president-section {
-            display: flex;
-            gap: 3rem;
-            align-items: flex-start;
-            max-width: 900px;
-            margin: 0 auto 3rem;
-            padding: 0 1rem;
-        }
-        .president-photo {
-            flex-shrink: 0;
-            width: 280px;
-        }
-        .president-photo img {
-            width: 100%;
-            height: 360px;
-            object-fit: cover;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-            border: 4px solid var(--green-200);
-        }
-        .president-photo-name {
-            text-align: center;
-            margin-top: 1rem;
-            font-family: var(--font-display);
-            font-weight: 700;
-            color: var(--green-800);
-            font-size: 1.1rem;
-        }
-        .president-photo-title {
-            text-align: center;
-            font-size: 0.85rem;
-            color: var(--gray-500);
-            font-weight: 500;
-            margin-top: 0.2rem;
-        }
-        .president-text {
-            flex: 1;
-        }
-        .president-text p {
-            margin-bottom: 1.2rem; font-size: 1.05rem;
-            color: var(--gray-600); line-height: 1.9;
-        }
-        @media (max-width: 768px) {
-            .president-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-            .president-photo {
-                width: 220px;
-            }
-            .president-photo img {
-                height: 280px;
-            }
-        }
-
-        .about-quote {
-            margin: 2.5rem 0;
-            padding: 2rem 2.5rem;
-            background: linear-gradient(135deg, rgba(74, 124, 44, 0.06), rgba(168, 208, 141, 0.08));
-            border-left: 4px solid var(--green-500);
-            border-radius: 0 var(--radius-md) var(--radius-md) 0;
-            font-style: italic;
-            font-size: 1.15rem;
-            color: var(--green-800);
-            font-weight: 600;
-            position: relative;
-        }
-        .about-quote::before {
-            content: '"';
-            font-family: var(--font-display);
-            font-size: 4rem;
-            color: var(--green-300);
-            position: absolute; top: -10px; left: 15px;
-            line-height: 1;
-        }
         .about-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -720,7 +649,114 @@
         }
         .about-card p {
             color: var(--gray-500); line-height: 1.8; font-size: 0.95rem;
+        } */
+
+
+
+            /* ========== MOT DU PRÉSIDENT - Correction Layout ========== */
+    .president-section {
+        display: block; /* On enlève le flex pour permettre l'enroulement */
+        max-width: 900px;
+        margin: 0 auto 3rem;
+        padding: 0 1rem;
+        content: "";
+        display: table;
+        clear: both;
+        text-align: relative;
+        /* On nettoie le conteneur parent pour être sûr qu'il ne bloque rien */
+        display: block !important;
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        
+    }
+
+    .president-photo {
+        float: left; /* L'image flotte à gauche */
+        width: 280px;
+        margin-right: 2.5rem; /* Espace entre photo et texte */
+        margin-bottom: 1rem; /* Espace si le texte passe en dessous */
+        flex-shrink: 0;
+
+    }
+
+    .president-photo img {
+        width: 100%;
+        height: 360px;
+        object-fit: cover;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-lg);
+        border: 4px solid var(--green-200);
+    }
+
+    .president-photo-name {
+        text-align: center;
+        margin-top: 1rem;
+        font-family: var(--font-display);
+        font-weight: 700;
+        color: var(--green-800);
+        font-size: 1.1rem;
+    }
+
+    .president-photo-title {
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--gray-500);
+        font-weight: 500;
+        margin-top: 0.2rem;
+    }
+
+    /* Adaptation pour le texte */
+    .about-text p {
+        margin-bottom: 1.2rem; 
+        font-size: 1.05rem;
+        color: var(--gray-600); 
+        line-height: 1.9;
+    }
+
+    /* Mobile : on remet tout au centre */
+    @media (max-width: 768px) {
+        .president-photo {
+            float: none; /* On annule le flottement */
+            margin: 0 auto 2rem; /* On centre la photo */
+            width: 220px;
         }
+        
+    }
+        /* Cette classe va forcer le texte à monter à côté de la photo */
+    .president-message {
+        display: block !important; /* Force l'arrêt du mode colonne */
+        overflow: visible;
+    }
+
+    .president-message p {
+        margin-bottom: 1.2rem;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--gray-600);
+    }
+
+    .textedefin {
+        margin: auto;
+        padding: 2rem 2.5rem;
+        background: linear-gradient(135deg, rgba(74, 124, 44, 0.06), rgba(168, 208, 141, 0.08));
+        border-left: 4px solid var(--green-500);
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        font-style: italic;
+        font-size: 1.15rem;
+        color: var(--green-800);
+        font-weight: 600;
+        position: relative;
+    }
+        .textedefin::before {
+        content: '"';
+        font-family: var(--font-display);
+        font-size: 4rem;
+        color: var(--green-300);
+        position: absolute; top: -10px; left: 15px;
+        line-height: 1;
+    }
+
 
         /* ========== GRANDS PROJETS (section premium) ========== */
         /* Arrière-plan élégant avec texture subtile */
@@ -1347,12 +1383,12 @@
                     <!-- <li><a href="#accueil">Accueil</a></li> -->
                     <li><a href="#mopresi">Mot du Président</a></li>
                     <li><a href="#apropos">À propos</a></li>
-                    <li><a href="#actions">Actions</a></li>
                     <li><a href="#gprojets">Grands Projets</a></li>
+                    <li><a href="#actions">Actions</a></li>
                     <li><a href="#galerie">Galerie</a></li>
                     <li><a href="#partenaires">Partenaires</a></li>
                     <li><a href="#contacts">Contacts</a></li>
-                    <li><a href="#">Faire un dons</a></li> <!--  class="nav-cta" -->
+                    <li><a href="https://forms.gle/i4DFF8jyZaGmDLGP7" target="_blank" rel="noopener noreferrer" class="nav-cta" >Faire un don</a></li> <!--  class="nav-cta" -->
                 </ul>
             </nav>
         </div>
@@ -1361,11 +1397,7 @@
 
     <!-- ========== SECTION ACCUEIL / HERO ========== -->
     <section id="accueil">
-        <!-- ====== VIDÉO D'ARRIÈRE-PLAN ====== -->
-        <!-- Pour activer la vidéo : remplacer le src par le chemin de votre vidéo (.mp4) -->
-        <!-- Attributs : autoplay (lecture auto), muted (muet obligatoire pour autoplay), loop (boucle), playsinline (mobile) -->
         <video class="hero-video" autoplay muted loop playsinline>
-            <!-- Décommentez et modifiez la ligne ci-dessous avec votre fichier vidéo -->
             <source src="Images/deo.mp4" type="video/mp4">
         </video>
         <!-- Overlay sombre par-dessus la vidéo pour la lisibilité -->
@@ -1388,15 +1420,15 @@
 
         <div class="hero-content">
             <!-- Badge d'identification -->
-            <div class="hero-badge">🌍 ONG Environnementale · Côte d'Ivoire</div>
+            <!-- <div class="hero-badge">🌍 ONG Environnementale · Côte d'Ivoire</div> -->
             
             <h1>Mouvement Ivoirien pour la <span>Sauvegarde de l'Environnement</span></h1>
             
-            <p>Ensemble, engageons-nous pour un avenir durable. Reboisement, sensibilisation et mobilisation citoyenne au cœur de notre action.</p>
+            <p>Ensemble, engageons-nous pour un avenir durable Reboisement, sensibilisation et mobilisation citoyenne au cœur de notre action</p>
             
             <div class="hero-buttons">
-                <a href="https://forms.gle/FckktvR36vUENe618" class="btn btn-primary">✊ Rejoindre le mouvement</a>
-                <a href="#" class="btn btn-secondary">💚 Faire un don</a>
+                <a href="https://forms.gle/FckktvR36vUENe618" class="btn btn-primary"><i class="fas fa-fist-raised" style="color: #4CAF50;"></i> Rejoindre le mouvement</a>
+                <a href="https://forms.gle/i4DFF8jyZaGmDLGP7" class="btn btn-secondary" target="_blank" rel="noopener noreferrer"><i class="fas fa-heart" style="color: #4CAF50;"></i>Faire un don</a>
             </div>
 
             <!-- Chiffres clés animés -->
@@ -1421,21 +1453,23 @@
         </div>
 
         <!-- Indicateur de scroll -->
-        <!-- <div class="scroll-indicator">
+        <div class="scroll-indicator">
             <a href="#apropos">
                 <span>Découvrir</span>
                 <span class="scroll-arrow">↓</span>
             </a>
-        </div> -->
-    </section>
+        </div>
+    </section> <br> <br>
     
 
     <!-- ========== SECTION MOT DU PRÉSIDENT ========== -->
-    <section class="about-full" id="mopresi">
+    <section class="president-section" id="mopresi">
         <div class="about-inner">
-            <div class="section-header reveal">
-                <h2>Mot du <em>Président Fondateur</em></h2>
-            </div>
+            <marquee behavior="scroll" direction="left">
+                <div class="section-header reveal">
+                    <h2>Mot du <em>Président Fondateur</em></h2>
+                </div>
+            </marquee>
             <!-- Layout photo + texte côte à côte -->
             <div class="president-section reveal">
                 <!-- Photo du président avec légende -->
@@ -1445,7 +1479,7 @@
                     <div class="president-photo-title">Président Fondateur</div>
                 </div>
                 <!-- Texte du mot du président -->
-                <div class="about-text reveal">
+                <div class="president-message reveal">
                     <p>Mesdames et messieurs les autorités,</p>
                     <p>Chers représentants des institutions,</p>
                     <p>Chères communautés partenaires,</p>
@@ -1462,13 +1496,13 @@
                     <p>Ce n'est pas une mission que je porte seul : c'est un combat que nous devons mener ensemble, parce que l'environnement ne connaît pas de frontières politiques ni sociales.</p>
                     <p>Nous avons l'ambition d'agir concrètement : sensibiliser, reboiser, former, mobiliser. Mais surtout, <b>RALLUMER LA FLAMME DU RESPECT DE LA NATURE DANS LE CŒUR DE CHAQUE IVOIRIEN.</b></p>
                     <p>Je vous tends aujourd'hui la main, non pas seulement pour soutenir une ONG, mais pour bâtir un mouvement national, une force citoyenne engagée pour la vie, pour la terre et pour l'avenir.</p>
-                    <div class="about-quote">
+                    <div class="textedefin">
                         Ensemble, faisons du MIPSE la voix verte de la Côte d'Ivoire.
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </section> <br>
 
     <!-- ========== SECTION À PROPOS ========== -->
     <div class="about-full" id="apropos">
@@ -1491,17 +1525,18 @@
 
             <div class="about-content">
                 <div class="about-card reveal" style="transition-delay: 0.1s;">
-                    <div class="about-card-icon">🎯</div>
+                    <div class="about-card-icon"><i class="fas fa-location-arrow" style="color: #4CAF50;"></i></div>
+                    
                     <h3>Notre Mission</h3>
                     <p>Sensibiliser, former et agir contre la déforestation, les déchets mal gérés et l'indifférence écologique. Nous mobilisons les jeunes et les communautés autour d'initiatives durables à fort impact social et environnemental.</p>
                 </div>
                 <div class="about-card reveal" style="transition-delay: 0.2s;">
-                    <div class="about-card-icon">👁️</div>
+                    <div class="about-card-icon"><i class="fas fa-eye" style="color: #4CAF50;"></i></div>
                     <h3>Notre Vision</h3>
                     <p>Faire de l'engagement écologique un réflexe collectif. MIPSE rêve d'un pays où écoles, quartiers et entreprises deviennent acteurs du changement pour la planète.</p>
                 </div>
                 <div class="about-card reveal" style="transition-delay: 0.3s;">
-                    <div class="about-card-icon">💚</div>
+                    <div class="about-card-icon"><i class="fas fa-heart" style="color: #4CAF50;"></i></div>
                     <h3>Nos Valeurs</h3>
                     <p>
                         <strong>Engagement :</strong> Agir avec détermination.<br>
@@ -1519,11 +1554,10 @@
     <div class="grands-projets-full" id="gprojets">
         <div class="grands-projets-inner">
             <div class="section-header reveal">
-                <div class="section-label">⭐ Impact concret</div>
+                <div class="section-label"><i class="far fa-star" style="color: var(--yellow-900);"></i> Impact concret</div>
                 <h2>Nos <em>grands projets</em></h2>
                 <p class="section-description">Ici, les idées deviennent des actes. Nos grands projets sont des réponses concrètes à l'urgence environnementale que connaît la Côte d'Ivoire.</p>
             </div>
-
             <div class="actions-grid">
                 <!-- Grand Projet 1 -->
                 <div class="action-card reveal">
@@ -1533,9 +1567,9 @@
                     <div class="action-content">
                         <div class="action-header">
                             <div class="action-status-container">
-                                <span class="gp-badge">⭐ Grand Projet</span>
+                                <span class="gp-badge"><i class="far fa-star" style="color: var(--green-900);"></i> Grand Projet</span>
                                 <span class="action-status status-passee">Terminée</span>
-                                <a href="#galerie" class="photo-btn" onclick="showGallery('solidariteyyy')">📸 Photos</a>
+                                <a href="#galerie" class="photo-btn" onclick="showGallery('solidariteyyy')"><i class="fa fa-image"></i> Photos</a>
                             </div>
                         </div>
                         <h3>Challenge de la solidarité</h3>
@@ -1572,7 +1606,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-passee">Terminée</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('solidarite')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('solidarite')"><i class="far fa-image"></i>Photos</a>
                         </div>
                     </div>
                     <h3>Challenge de la solidarité</h3>
@@ -1589,7 +1623,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-passee">Terminée</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('pepinieres')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('pepinieres')"><i class="far fa-image"></i>Photos</a>
                         </div>
                     </div>
                     <h3>Production de pépinières</h3>
@@ -1606,7 +1640,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-passee">Terminée</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('compost')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('compost')"><i class="far fa-image"></i>Photos</a>
                         </div>
                     </div>
                     <h3>Compost agroverma</h3>
@@ -1623,7 +1657,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-passee">Terminée</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('pif2')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('pif2')"><i class="far fa-image"></i>Photos</a>
                         </div>
                     </div>
                     <h3>Projet PIF 2</h3>
@@ -1640,7 +1674,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-encours">En cours</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('ville-verte')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('ville-verte')"><i class="far fa-image"></i>Photos</a>
                         </div>
                     </div>
                     <h3>Ville verte</h3>
@@ -1657,7 +1691,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-encours">En cours</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('ecole-agro')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('ecole-agro')"><i class="far fa-image"></i> Photos</a>
                         </div>
                     </div>
                     <h3>Une école, un centre agropastoral</h3>
@@ -1674,7 +1708,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-encours">En cours</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('zero-suicide')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('zero-suicide')"><i class="far fa-image"></i> Photos</a>
                         </div>
                     </div>
                     <h3>Santé pour tous - Zéro suicide</h3>
@@ -1691,7 +1725,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-passee">Terminée</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('plateau-vert')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('plateau-vert')"><i class="far fa-image"></i> Photos</a>
                         </div>
                     </div>
                     <h3>Plateau vert 3e édition</h3>
@@ -1708,7 +1742,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-encours">En cours</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('j-aime-ma-cite')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('j-aime-ma-cite')"><i class="far fa-image"></i> Photos</a>
                         </div>
                     </div>
                     <h3>J'aime ma cité</h3>
@@ -1725,7 +1759,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-encours">En cours</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('ferme-agro')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('ferme-agro')"><i class="far fa-image"></i> Photos</a>
                         </div>
                     </div>
                     <h3>Un jeune, une ferme agropastorale</h3>
@@ -1742,7 +1776,7 @@
                     <div class="action-header">
                         <div class="action-status-container">
                             <span class="action-status status-encours">En cours</span>
-                            <a href="#galerie" class="photo-btn" onclick="showGallery('clean-school')">📸 Photos</a>
+                            <a href="#galerie" class="photo-btn" onclick="showGallery('clean-school')"><i class="far fa-image"></i> Photos</a>
                         </div>
                     </div>
                     <h3>Clean school</h3>
